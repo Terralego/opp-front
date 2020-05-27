@@ -1,0 +1,59 @@
+@import '../../../variables.scss';
+
+.main__content {
+  .search {
+    z-index: 8;
+    flex: initial;
+    height: 100vh;
+    width: 300px;
+    color: $white;
+    margin-left: -17rem;
+    transform: translateX(17rem);
+    transition: transform $transitionSpeed ease-in;
+    font-size: 0.9em;
+    background-color: $solidgray;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 1);
+
+    &.search_hide {
+
+      transform: translateX(0);
+
+      .search_tabs_title {
+
+        button > span {
+          transform: scaleX(-1);
+        }
+      }
+
+      .bp3-tabs {
+        padding: 0 30px;
+      }
+    }
+
+    .search_tabs_title {
+      display: flex;
+      text-transform: uppercase;
+      justify-content: space-between;
+      padding-left: 4px;
+      color: $white;
+      margin-left: 10px;
+
+      .search__button {
+        span {
+          color: $white;
+          transition: margin $transitionSpeed ease;
+        }
+
+        &:hover {
+          background-color: #3d4f5c;
+        }
+      }
+    }
+
+    .control-label {
+      margin-left: 10px;
+    }
+
+    @extend .override-tabs-bp3;
+  }
+}

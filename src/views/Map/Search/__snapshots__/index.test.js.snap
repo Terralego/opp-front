@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div
+  className="search search_hide"
+>
+  <div
+    className="search_tabs_title"
+  >
+    <h3>
+      Search viewpoints
+    </h3>
+    <button
+      className="bp3-button bp3-minimal search__button"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      type="button"
+    >
+      <span
+        className="bp3-icon bp3-icon-arrow-left"
+        icon="arrow-left"
+      >
+        <svg
+          data-icon="arrow-left"
+          height={16}
+          viewBox="0 0 16 16"
+          width={16}
+        >
+          <desc>
+            arrow-left
+          </desc>
+          <path
+            d="M13.99 6.99H4.41L7.7 3.7a1.003 1.003 0 0 0-1.42-1.42l-5 5a1.014 1.014 0 0 0 0 1.42l5 5a1.003 1.003 0 0 0 1.42-1.42L4.41 8.99H14c.55 0 1-.45 1-1s-.46-1-1.01-1z"
+            fillRule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    className="bp3-tabs"
+  >
+    <div
+      className="bp3-tab-list"
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      role="tablist"
+    >
+      <div
+        className="bp3-tab-indicator-wrapper"
+      >
+        <div
+          className="bp3-tab-indicator"
+        />
+      </div>
+      <div
+        aria-controls="bp3-tab-panel_search_searchSimple_tab"
+        aria-disabled={false}
+        aria-expanded={true}
+        aria-selected={true}
+        className="bp3-tab search-filters search-simple-content"
+        data-tab-id="searchSimple_tab"
+        id="bp3-tab-title_search_searchSimple_tab"
+        onClick={[Function]}
+        role="tab"
+        tabIndex={0}
+      >
+        Simple Search
+      </div>
+      <div
+        aria-controls="bp3-tab-panel_search_searchAdvanced_tab"
+        aria-disabled={false}
+        aria-expanded={false}
+        aria-selected={false}
+        className="bp3-tab search-filters search-advanced-content"
+        data-tab-id="searchAdvanced_tab"
+        id="bp3-tab-title_search_searchAdvanced_tab"
+        onClick={[Function]}
+        role="tab"
+        tabIndex={0}
+      >
+        Advanced Search
+      </div>
+    </div>
+    <div
+      aria-hidden={false}
+      aria-labelledby="bp3-tab-title_search_searchSimple_tab"
+      className="bp3-tab-panel search-filters search-simple-content"
+      id="bp3-tab-panel_search_searchSimple_tab"
+      role="tabpanel"
+    >
+      <p>
+        SearchFormMock
+      </p>
+    </div>
+    <div
+      aria-hidden={true}
+      aria-labelledby="bp3-tab-title_search_searchAdvanced_tab"
+      className="bp3-tab-panel search-filters search-advanced-content"
+      id="bp3-tab-panel_search_searchAdvanced_tab"
+      role="tabpanel"
+    >
+      <p>
+        SearchFormMock
+      </p>
+    </div>
+  </div>
+</div>
+`;

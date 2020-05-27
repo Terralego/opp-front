@@ -1,0 +1,108 @@
+@import 'variables';
+
+.textcontent {
+  padding: 2em;
+  max-width: 70em;
+  margin: 0 auto 0 400px;
+  @include breakpoint(tablet) {
+    margin: 0 auto 0 250px;
+  }
+  @include breakpoint(mobile) {
+    margin: 0 auto 0 200px;
+  }
+
+  font-family: $roboto;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $darkblue;
+  }
+
+  h1 {
+    font-size: rem(30);
+    border-bottom: 2px solid $darkblue;
+  }
+
+  h2 {
+    font-size: rem(22);
+  }
+
+  h3 {
+    font-size: rem(20);
+    color: $lightblue;
+    margin-left: 5rem;
+  }
+
+  h4 {
+    font-size: rem(18);
+    margin-left: 5rem;
+
+  }
+
+  h5 {
+    font-size: rem(16);
+    margin-left: 5rem;
+    color: $darkgray
+  }
+
+  h6 {
+    font-size: rem(16);
+    margin-left: 5rem;
+  }
+
+  p, ul, ol {
+    font-size: rem(14);
+    margin-left: 5rem;
+  }
+
+  ul ul {
+    margin-left: 0;
+  }
+
+  ul {
+    li {
+      list-style: none;
+
+      &:before {
+        content: "• ";
+        color: $darkblue;
+      }
+    }
+  }
+
+  .toc_list {
+    position: fixed;
+    left: rem(50);
+    max-width: 400px;
+    @include breakpoint(phablet) {
+      max-width: 250px;
+    }
+    @include breakpoint(mobile) {
+      position: relative !important;
+      max-width: auto;
+      left: 0;
+      background-color: $lightblue;
+    }
+    margin-left: 0;
+
+    li {
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &:before {
+        display: none;
+      }
+
+      list-style-type: none;
+      margin: 0.5rem 0 1rem 0;
+      font-size: rem(15);
+    }
+  }
+
+  cite {
+    border-left: 4px solid #ccc;
+    display: block;
+    margin-top: 2rem;
+    padding-left: 2rem;
+  }
+}

@@ -1,0 +1,51 @@
+@import '../../variables';
+
+.collapsible-panel {
+  &--title {
+    position: relative;
+    border-top: 1px solid $contrastedblue;
+
+    h3 {
+      background: $collapsibleheading;
+      font-family: $base-font;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: #F5F8FA;
+      font-weight: 300;
+      line-height: $base-line-height;
+      padding: 10px 10px;
+      margin: 0;
+    }
+
+    .bp3-button {
+      border-radius: 50%;
+      position: absolute;
+      right: 10px;
+      bottom: -35%;
+      z-index: 50;
+      background-color: $activetabgray;
+      background-image: none;
+
+      &:hover {
+        background-color: $activetabgray;
+      }
+
+      .bp3-icon > svg {
+        fill: $white;
+      }
+    }
+  }
+
+  .bp3-tab-panel {
+    padding: 0 10px;
+  }
+
+  .bp3-collapse {
+    padding: 0 0;
+
+    &-body {
+      padding: 1em;
+      overflow: hidden;
+    }
+  }
+}

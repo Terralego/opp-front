@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div
+  className="map"
+>
+  <p>
+    Search
+  </p>
+  <p>
+    Results
+  </p>
+  <p>
+    VisualizerMock
+  </p>
+  <p>
+    OppInformationMock
+  </p>
+</div>
+`;

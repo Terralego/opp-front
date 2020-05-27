@@ -1,0 +1,72 @@
+@import '../../../variables.scss';
+
+.content__compare {
+  position: absolute;
+  left: $gallery-width;
+  top: 50px;
+  bottom: 0;
+  width: calc(100% - #{$gallery-width});
+  display: flex;
+}
+
+.zoom__compare {
+  z-index: 12;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 410px;
+  height: $navbar-viewpoint-height;
+  padding: 10px 0;
+  background-color: $mapPopup;
+
+  .zoom__button {
+    height: 30px;
+    background-color: $solidgray;
+    background-image: none;
+
+    &:hover {
+      text-decoration: none;
+      background-color: #3f505c;
+    }
+
+    // Override Blueprintjs
+    &.bp3-disabled {
+      background-color: $solidgray;
+    }
+
+    span {
+      color: white;
+    }
+  }
+
+  .zoom__container {
+    margin: 6px 10px 0;
+
+    // Override Blueprintjs
+    .bp3-slider {
+      .bp3-slider-axis {
+        display: none;
+      }
+
+      .bp3-slider-track {
+        .bp3-slider-progress {
+          background-color: #4f7384;
+
+          &.bp3-intent-primary {
+            background-color: #125a89;
+          }
+        }
+      }
+
+      .bp3-slider-handle {
+
+        .bp3-slider-label {
+          display: none;
+        }
+      }
+    }
+  }
+}

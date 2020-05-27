@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<form
+  className="filters"
+  onSubmit={[Function]}
+>
+  <div>
+    <div />
+    <div
+      className="action-search"
+    >
+      <button
+        className="bp3-button"
+        disabled={false}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        type="button"
+      >
+        <span
+          className="bp3-button-text"
+        >
+          Reset
+        </span>
+      </button>
+      <button
+        className="bp3-button"
+        disabled={false}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        type="submit"
+      >
+        <span
+          className="bp3-button-text"
+        >
+          Search
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;

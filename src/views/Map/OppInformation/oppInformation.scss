@@ -1,0 +1,124 @@
+@import "../../../variables";
+
+.opp-information {
+
+  &__overlay {
+    display: flex;
+    justify-content: center;
+    @include rounded(8px);
+    
+    &.bp3-overlay-scroll-container {
+      overflow: hidden;
+    }
+    
+    .bp3-overlay-backdrop {
+      &.bp3-overlay-enter-done {
+        left: $navbar-width;
+      }
+    }
+  }
+
+  &__trigger {
+    position: absolute;
+    top: 0.7rem;
+    left: 2.5rem;
+    background-color: $mapPopup;
+    background-image: none;
+  
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(71, 93, 109, 0.96);
+      color: #ffffff;
+    }
+  
+    > span {
+      color: $white;
+    }
+  }
+}
+
+.opp-information-overlay {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $activetabgray;
+    position: relative;
+    @include rounded(8px 8px 0 0);
+    border-bottom: 2px solid rgba(16, 22, 26, 0.40);
+
+    button.bp3-button {
+      border: none;
+      box-shadow: none;
+      margin: 1em;
+      background-color: transparent;
+      background-image: none;
+      transition-duration: 0.5s;
+      opacity: 0.5;
+
+      &:hover {
+        transform: rotate(90deg);
+        transition-duration: 0.5s;
+        background-color: transparent;
+        background-image: none;
+        box-shadow: none;
+        opacity: 0.8;
+
+      }
+    }
+  }
+
+  .bp3-overlay-content {
+    bottom: 0;
+    top: 1280px;
+    width: 700px;
+    height: 300px;
+    color: $white;
+
+    &.bp3-overlay-enter-done {
+      top: 150px;
+    }
+
+    h2 {
+      padding: 0 20px;
+      font-family: $base-font;
+      font-size: 22px;
+      color: #F5F8FA;
+      line-height: $base-line-height;
+      font-weight: 200;
+    }
+
+    .bp3-overlay-subcontent {
+      padding: 20px;
+      background-color: #223947;
+      @include rounded(0 0 8px 8px);
+
+      h3 {
+        font-family: $base-font;
+        font-size: 18px;
+        color: #F5F8FA;
+        margin: 0.5em 0;
+        font-weight: 200;
+      }
+
+      p {
+        font-family: $base-font;
+        font-size: 14px;
+        color: #F5F8FA;
+        line-height: $base-line-height;
+      }
+
+      .subcontent-img {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin: 2em 0 1em;
+
+        img {
+          max-height: 160px;
+          padding: 0 1em;
+        }
+      }
+    }
+  }
+}

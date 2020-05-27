@@ -1,0 +1,17 @@
+@import '../../variables.scss';
+
+.error-404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: $solidgray;
+}
+
+.error-404--message, .error-404--title {
+  text-align: center;
+  color: #fff;
+}
+
+.error-404--message {
+  font-size: 2em;
+}

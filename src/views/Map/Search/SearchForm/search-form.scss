@@ -1,0 +1,155 @@
+@import "../../../../variables.scss";
+
+.filters {
+  padding-top: 10px;
+
+  > div {
+    height: calc(100vh - 103px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .control-container {
+    margin: 10px;
+    padding: 5px 0 0 0;
+
+    .tf-select {
+      .bp3-popover-target {
+        width: 100%;
+
+        .bp3-button {
+          width: 100%;
+          text-align: left;
+          justify-content: space-between;
+          background-color: $darkgray;
+          background-image: none;
+          color: #fff;
+          text-transform: lowercase;
+
+          > span::first-letter {
+            text-transform: uppercase;
+          }
+
+          &:hover {
+            text-decoration: none;
+            background-color: initial;
+          }
+
+          &:focus {
+            box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+          }
+        }
+      }
+
+
+    }
+
+    .tf-multiselect {
+      .bp3-popover-target {
+        width: 100%;
+
+        .bp3-input {
+          background-color: $darkgray;
+          text-transform: capitalize;
+
+          .bp3-input-ghost {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    // Select and Multiselect Dropdown
+    .bp3-menu {
+      max-width: 270px;
+      max-height: 300px;
+      overflow: auto;
+    }
+
+    .tf-control-date-range {
+      color: #000;
+      padding: 0;
+
+      .bp3-popover-target {
+        width: 100%;
+        background-color: $lightestgrey;
+        padding: 5px;
+        box-shadow: 0 0 3px rgba(255, 255, 255, .2) inset;
+
+        .bp3-control-group {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .bp3-input-group {
+          border-radius: 3px;
+          width: 80%;
+        }
+      }
+
+      // Fix temporary
+      .bp3-datepicker-caption select {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      .input-range {
+        display: flex;
+        color: #fff;
+
+        .bp3-input {
+          background-color: $darkgray;
+          color: #fff;
+        }
+
+        &:before {
+          content: "";
+          padding: 5px 10px 5px 5px;
+          line-height: 20px;
+        }
+      }
+
+      .input-range--start {
+        padding-bottom: 0.5em;
+
+        &:before {
+          content: "Du";
+        }
+      }
+
+      .input-range--end {
+        &:before {
+          content: "Au";
+        }
+      }
+    }
+
+    .bp3-input {
+      background-color: $darkgray;
+      color: #fff;
+    }
+  }
+
+  .action-search {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 10px;
+
+    > button {
+      background-color: #425360;
+      background-image: none;
+      margin-left: 5px;
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #35729f;
+      }
+
+      &.bp3-disabled {
+        background-color: $activetabgray;
+      }
+    }
+  }
+}

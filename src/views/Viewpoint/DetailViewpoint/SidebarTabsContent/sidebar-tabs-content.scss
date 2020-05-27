@@ -1,0 +1,43 @@
+.panel-details {
+  position: absolute;
+  bottom: 51px;
+  top: 35px;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+
+  .badge {
+    background-color: azure;
+    color: black;
+    display: inline-block;
+    padding: 0.3em 0.4em;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 0.25rem;
+    margin-right: 1em;
+    text-transform: lowercase;
+  }
+}
+
+.panel-content {
+  h1, h2, h3, h4, h5, h6 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &--related_documents {
+    .bp3-spinner {
+      margin: 0 auto;
+    }
+
+    .bp3-button {
+      background: rgba(216, 216, 216, 0.30);
+      margin-bottom: .5em;
+
+      .bp3-icon, .bp3-button-text {
+        color: #fff;
+      }
+    }
+  }
+}

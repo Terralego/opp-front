@@ -1,0 +1,16 @@
+#map-line {
+  display: flex;
+  flex-direction: row;
+
+  .mapboxgl-map {
+    width: 50%;
+    padding-bottom: 25%;
+    position: relative;
+
+    .mapboxgl-canvas {
+      top: 0;
+      height: auto !important;
+      width: 100% !important;
+    }
+  }
+}

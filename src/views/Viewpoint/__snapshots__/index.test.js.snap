@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div>
+  <div
+    className="bp3-navbar navTop"
+  >
+    <div
+      className="bp3-navbar-group bp3-align-left navTop__go-back"
+    />
+    <div
+      className="bp3-navbar-group navTop__viewpoint-name"
+    >
+      <img
+        alt=""
+        className="icon"
+        src="/images/icon_poi.svg"
+      />
+      <div
+        className="bp3-navbar-heading"
+      >
+        <h2 />
+      </div>
+    </div>
+  </div>
+  <p>
+    Gallery
+  </p>
+</div>
+`;

@@ -1,0 +1,150 @@
+@import '../../../../variables';
+
+.resultlist {
+  z-index: 6;
+  flex: initial;
+  position: relative;
+  height: 100vh;
+  width: 300px;
+  font-size: 0.9em;
+  background-color: $solidgray;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 1);
+  transform: translateX(17rem);
+  transition: transform $transitionSpeed ease-in;
+
+  display: flex;
+  flex-direction: column;
+
+  .search_hide + & {
+    transform: translateX(0);
+  }
+
+  .resultlist-header {
+      display: flex;
+      justify-content: space-between;
+
+      .result__button {
+        span.bp3-icon {
+          color: $white;
+          transition: margin $transitionSpeed ease;
+        }
+
+        &:hover {
+          background-color: #3d4f5c;
+        }
+      }
+  }
+
+  &-title {
+    padding: 0 1em;
+    text-transform: uppercase;
+  }
+
+  &-count {
+    padding: 0 1em;
+    text-align: right;
+  }
+
+  &-content {
+    flex: 1 1 auto;
+    overflow: auto;
+    .bp3-dark & {
+      & {
+        scrollbar-color: #202b33 #293742;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #293742;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #202b33;
+      }
+    }
+  }
+
+  &.hidden {
+    transform: translate(0);
+
+    .search_hide + & {
+      margin-left: -17rem ;
+    }
+
+    .result__button > span {
+      transform: scaleX(-1);
+    }
+  }
+
+  .result {
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+    color: white;
+    padding: 0 1em;
+
+    + .result {
+      margin-top: 1em;
+      border-top: 2px solid rgba(#ccc, .25);
+    }
+
+    &:hover {
+      color: white;
+    }
+
+    &-title {
+      margin-bottom: .5em;
+    }
+
+    &-action {
+      align-self: flex-end;
+      margin-top: .5em;
+    }
+  }
+}
+
+.result-picture {
+  background-color: $lightestgrey;
+  max-height: 180px;
+  max-width: 100%;
+  height: auto;
+  border: none;
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+  padding-inline-start: 0;
+
+  li {
+    display: inline-flex;
+    padding: 0.2em 0.4em;
+
+    a {
+      color: $white;
+    }
+
+    &.previous,
+    &.next {
+
+      &.disabled {
+        opacity: 0.2;
+        color: $white;
+
+        a {
+          cursor: not-allowed;
+          text-decoration: none;
+          color: $white;
+        }
+      }
+    }
+
+    &.active {
+      background-color: $page-active;
+
+      a  {
+        font-weight: 600;
+      }
+    }
+  }
+}

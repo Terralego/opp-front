@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div
+  className="error-404"
+>
+  <div>
+    blueprint h1
+  </div>
+  <p
+    className="error-404--message"
+  >
+    Go back to 
+    <span
+      to="/"
+    >
+      homepage
+    </span>
+  </p>
+</div>
+`;

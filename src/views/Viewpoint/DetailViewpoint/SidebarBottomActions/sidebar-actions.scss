@@ -1,0 +1,36 @@
+@import "../../../../variables";
+
+.sibebarActions {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  background: $activetabgray;
+  border-top: 1px solid #979fa5;
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 0 0 rgba(16, 22, 26, 0), 0 -2px 1px rgba(16, 22, 26, 0.2);
+
+  .bp3-navbar {
+    &-group {
+      display: flex;
+      justify-content: space-between;
+
+      .bp3-spinner {
+        margin: 0 auto;
+      }
+
+      button {
+        background: $buttonBlue;
+        color: #FFFFFF;
+
+        .bp3-icon {
+          color: #fff;
+        }
+
+        &:hover, &:focus {
+          text-decoration: none;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

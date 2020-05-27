@@ -1,0 +1,142 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// Font Variables
+$roboto: 'Roboto', sans-serif;
+
+$base-font: $roboto;
+$base-font-size: 13px;
+$base-line-height: 1.5em;
+
+// Size
+$navbar-width: 70px;
+$gallery-width: 160px;
+$navbar-width-gallery: $navbar-width + $gallery-width;
+$navbar-viewpoint-height: 50px;
+$navbar-width-search: 370px;
+$navbar-width-search-results: 670px;
+
+// Colors
+$mapControl: #3d4f5c;
+$mapPopup: #394B59;
+$white: #ffffff;
+$lightblue: #48AFF0;
+$darkblue: #0E5A8A;
+$lightgrey: #ebebeb;
+$lightestgrey: #394b59;
+$solidgray: #293742;
+$sidebarDarkblue: #2d3d48;
+$darkgray: #212d36;
+$activetabgray:#30404d;
+$active-green: #6baf28;
+$page-active: #eb7139;
+$contrastedblue: #01a8b9;
+$collapsibleheading: #5c7080;
+$buttonBlue: #10161a;
+$backgroundTabGray: #697B89;
+
+// Animation - Transition
+$transitionSpeed: .2s;
+
+// Mixin
+@mixin reset-box {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin rounded($radius: 6px) {
+  border-radius: $radius;
+}
+
+// Function
+$browser-context: $base-font-size;
+
+@function rem($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+
+}
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 70em) {
+      @content ;
+    }
+  } @else if $point == laptop {
+    @media (min-width: 64em) {
+      @content ;
+    }
+  } @else if $point == tablet {
+    @media (min-width: 50em) {
+      @content ;
+    }
+  } @else if $point == phablet {
+    @media (min-width: 37.5em) {
+      @content ;
+    }
+  } @else if $point == mobileonly {
+    @media (max-width: 37.5em) {
+      @content ;
+    }
+  }
+}
+
+// Classes
+
+// Override Blueprintjs
+.override-tabs-bp3 {
+  .bp3-tabs {
+    color: $white;
+
+    .bp3-tab {
+      text-align: center;
+      color: $white;
+      font-family: $base-font;
+      text-transform: uppercase;
+      font-size: $base-font-size;
+      width: 50%;
+      margin: 0;
+      height: 35px;
+      padding-top: 0;
+      align-items: baseline;
+
+      &-list {
+        background-color: $activetabgray;
+        justify-content: space-around;
+      }
+
+      &-panel {
+        margin-top: 0;
+      }
+
+      &:hover {
+        color: $white;
+        transition: all 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
+      }
+
+      &-indicator-wrapper {
+        width: 50% !important;
+        height: 35px !important;
+        z-index: 2;
+
+        .bp3-tab-indicator {
+          background-color: $white;
+          width: 50%;
+          margin-left: 25%;
+        }
+      }
+
+      &[aria-selected="true"] {
+        color: $white;
+        transition: all 200ms cubic-bezier(0.4, 1, 0.75, 0.9);
+      }
+    }
+  }
+}

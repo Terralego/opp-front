@@ -1,0 +1,92 @@
+{
+  "date": {
+    "undefined": "Non définie"
+  },
+  "error": {
+    "404": {
+      "title": "Erreur 404 : Page introuvable.",
+      "message": "Retourner à la <1>page d'accueil</1>"
+    }
+  },
+  "common": {
+    "close": "Fermer",
+    "loading": "Chargement"
+  },
+  "map": {
+    "error": {
+      "configuration": {
+        "title": "Erreur de configuration",
+        "information": "La configuration de la carte n'est pas utilisable",
+        "contact": "Veuillez contacter un administrateur."
+      }
+    },
+    "title": "Rechercher un point du vue",
+    "simple-search": "Recherche simple",
+    "advanced-search": "Recherche Avancée",
+    "results": {
+      "title": "Résultats",
+      "number-viewpoints": "Nombre de points de vue :",
+      "no-results": "Oups, il n'y a pas de résultats à votre recherche.",
+      "access": "Accéder"
+    }
+  },
+  "form": {
+    "fields": {
+      "cities": "Commune",
+      "date": "Date",
+      "datePlaceholder": "JJ/MM/AAAA",
+      "filtersPlaceholder": "Filtres...",
+      "id": "Id de la Photographie",
+      "keywords": "Mots clés",
+      "label": "Nom du point de vue",
+      "photographers": "Photographe",
+      "themes": "Thèmes",
+      "themesPlaceholder": "Montagnes...",
+      "typology": "Typologie des paysages"
+    },
+    "reset": "Réinitialiser",
+    "search": "Rechercher"
+  },
+  "gallery": {
+    "backToViewPoint": "Retour au point de vue", 
+    "compareViewPoints": "Comparer"
+  },
+  "menu": {
+    "logoLink": "Retour à la carte",
+    "logoName": "Observatoire de la photo",
+    "search": "Recherche"
+  },
+  "viewPoint": {
+    "detail": {
+      "download": {
+        "PDF": "Voir la fiche complète",
+        "photos": "Télécharger les photos"
+      },
+      "description": {
+        "documents": "Documents associés",
+        "dynamics": "Dynamiques en cours",
+        "landscape": "Description du paysage",
+        "history": "Histoire",
+        "title": "Description"
+      },
+      "information": {
+        "landscapes": "Paysages",
+        "landscapesContent": "Thèmes",
+        "location": "Situation",
+        "locationContent": "Adresse",
+        "rephotography": "Rephotographie",
+        "rephotographyContent": "Dates ({{count}} photographie)",
+        "rephotographyContent_plural": "Dates ({{count}} photographies)",
+        "title": "Informations"
+      }
+    },
+      
+    "photo": {
+      "device": "Appareil photo",
+      "id": "ID Photographie",
+      "meta": "Metadonnées",
+      "owner": "Photographe",
+      "weather": "Conditions météo"
+    }
+  }
+}

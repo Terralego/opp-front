@@ -1,0 +1,59 @@
+@import "../../../variables";
+
+.navTop {
+  padding: 0;
+  background-color: $darkblue;
+
+  .navTop__go-back {
+    background-color: $solidgray;
+
+    button {
+      background-color: $solidgray;
+      background-image: none;
+      height: 50px;
+
+      > span {
+        color: $white;
+      }
+
+      &:hover {
+        text-decoration: none;
+        background-color: #4a6479;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .navTop__viewpoint-name {
+    color: $white;
+    padding-left: 10px;
+    background-color: $contrastedblue;
+
+    h2 {
+      margin-left: 10px;
+      font-size: 28px;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      text-align: left;
+      font-weight: 300;
+      text-transform: capitalize;
+    }
+
+    .icon {
+      width: 22px;
+      height: auto;
+    }
+  }
+
+  .navTop__viewpoint-detail {
+    a {
+      .bp3-button {
+        color: $white;
+
+        .bp3-icon {
+          color: $white;
+        }
+      }
+    }
+  }
+}

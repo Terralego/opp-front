@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+body {
+  font-family: $base-font;
+}
+
+.main {
+  display: flex;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: $navbar-width;
+
+    .bp3-navbar-heading {
+      .logo {
+        width: 50px;
+      }
+    }
+  }
+  
+  &__content {
+    display: flex;
+    flex: auto;
+    overflow: auto;
+    height: 100vh;
+    > div {
+      width: 100%;
+    }
+  }
+}
