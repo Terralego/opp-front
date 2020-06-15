@@ -32,6 +32,21 @@ npm ci
 
 ### Launch dev server
 
+Before launching dev server, you need to define API url
+
+```shell
+cp public/.env.dist.json public/.end.json
+```
+
+Edit this file, and set api backend url
+
+```json
+{
+  // example with backend app in dev mode
+  "API_PROVIDER": "http://127.0.0.1:8000/api"  
+}
+```
+
 ```shell
 npm start
 ```
@@ -75,3 +90,7 @@ serve local build
 ```shell
 npx serve -s build
 ```
+
+WARNING !
+
+In build mode, a frontend proxy should redirect all /api requests to backend application
