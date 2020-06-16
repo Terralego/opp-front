@@ -26,6 +26,7 @@
     "react-dnd": "~9.3.2",
     "react-dnd-html5-backend": "~9.3.2",
     "react-dom": "^16.6.3",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^11.4.0",
     "react-paginate": "^6.3.0",
     "react-router-dom": "^4.3.1",
