@@ -1,0 +1,92 @@
+{
+  "date": {
+    "undefined": "Undefined"
+  },
+  "error": {
+    "404": {
+      "title": "404: Not found.",
+      "message": "Back to <1>homepage</1>"
+    }
+  },
+  "common": {
+    "close": "Close",
+    "loading": "Loading"
+  },
+  "map": {
+    "error": {
+      "configuration": {
+        "title": "Settings error",
+        "information": "The map's setting is incomplete.",
+        "contact": "Please contact an administrator."
+      }
+    },
+    "title": "Search a viewpoint",
+    "simple-search": "Search",
+    "advanced-search": "Advanced",
+    "results": {
+      "title": "Results",
+      "number-viewpoints": "Number od viewpoints:",
+      "no-results": "Oops, there are no results for you request.",
+      "access": "Access"
+    }
+  },
+  "form": {
+    "fields": {
+      "cities": "Cities",
+      "date": "Date",
+      "datePlaceholder": "DD/MM/AAAA",
+      "filtersPlaceholder": "Filters...",
+      "id": "Photography ID",
+      "keywords": "Keywords",
+      "label": "Viewpoint label",
+      "photographers": "Photographers",
+      "themes": "Themes",
+      "themesPlaceholder": "Mountains...",
+      "typology": "Landscapes typology"
+    },
+    "reset": "Reset",
+    "search": "Search"
+  },
+  "gallery": {
+    "backToViewPoint": "Back to viewpoint", 
+    "compareViewPoints": "Compare"
+  },
+  "menu": {
+    "logoLink": "Back to the map",
+    "logoName": "Landscapes Photographic Observatory",
+    "search": "Search"
+  },
+  "viewPoint": {
+    "detail": {
+      "download": {
+        "PDF": "Download PDF detail",
+        "photos": "Download photos"
+      },
+      "description": {
+        "documents": "Related documents",
+        "dynamics": "Dynamics in progress",
+        "landscape": "Landscape description",
+        "history": "History",
+        "title": "Description"
+      },
+      "information": {
+        "landscapes": "Landscapes",
+        "landscapesContent": "Themes",
+        "location": "Location",
+        "locationContent": "Location detail",
+        "rephotography": "Rephotography",
+        "rephotographyContent": "Dates ({{count}} photography)",
+        "rephotographyContent_plural": "Dates ({{count}} photographies)",
+        "title": "Informations"
+      }
+    },
+      
+    "photo": {
+      "device": "Camera",
+      "id": "Photography ID",
+      "meta": "Metadata",
+      "owner": "Photographer",
+      "weather": "Weather forecast"
+    }
+  }
+}
