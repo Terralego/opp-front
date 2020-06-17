@@ -25,7 +25,7 @@
     "advanced-search": "Advanced",
     "results": {
       "title": "Results",
-      "number-viewpoints": "Number od viewpoints:",
+      "number-viewpoints": "Viewpoints count:",
       "no-results": "Oops, there are no results for you request.",
       "access": "Access"
     }
@@ -52,14 +52,14 @@
     "compareViewPoints": "Compare"
   },
   "menu": {
-    "logoLink": "Back to the map",
+    "logoLink": "Back to map",
     "logoName": "Landscapes Photographic Observatory",
     "search": "Search"
   },
   "viewPoint": {
     "detail": {
       "download": {
-        "PDF": "Download PDF detail",
+        "PDF": "Download detail PDF",
         "photos": "Download photos"
       },
       "description": {
