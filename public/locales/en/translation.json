@@ -56,6 +56,16 @@
     "logoName": "Landscapes Photographic Observatory",
     "search": "Search"
   },
+  "terralego": {
+    "forms": {
+      "controls": {
+        "generic": {
+          "empty_item": "All"
+        },
+        "noValues": "No value available"
+      }
+    }
+  },
   "viewPoint": {
     "detail": {
       "download": {
@@ -80,7 +90,6 @@
         "title": "Informations"
       }
     },
-      
     "photo": {
       "device": "Camera",
       "id": "Photography ID",
