@@ -56,6 +56,16 @@
     "logoName": "Observatoire de la photo",
     "search": "Recherche"
   },
+  "terralego": {
+    "forms": {
+      "controls": {
+        "generic": {
+          "empty_item": "Tous(tes)"
+        },
+        "noValues": "Aucune valeur disponible"
+      }
+    }
+  },
   "viewPoint": {
     "detail": {
       "download": {
@@ -80,7 +90,6 @@
         "title": "Informations"
       }
     },
-      
     "photo": {
       "device": "Appareil photo",
       "id": "ID Photographie",
