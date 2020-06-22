@@ -37,16 +37,22 @@ export class Viewpoint extends React.Component {
     this.getDataViewpoints(id);
   }
 
+  componentWillUnmount () {
+    this.isUnmount = true;
+  }
+
   /**
    * Get last picture of a viewpoint
    * @param idViewpoint
    * @returns {Promise<void>}
    */
   async getDataViewpoints (idViewpoint) {
-    const { selectedPictures } = this.state;
     const viewpoint = await getViewpointData(idViewpoint);
-    const { pictures: { 0: picture } } = viewpoint;
-    selectedPictures[0] = picture;
+    if (this.isUnmount) {
+      return;
+    }
+    const { pictures: [picture = null] = [] } = viewpoint;
+
     this.setState({
       viewpoint,
       selectedPictures: [picture, null],
@@ -83,6 +89,9 @@ export class Viewpoint extends React.Component {
     const { draggablePicture } = this.state;
     if (this.isPictureSelected(draggablePicture)) {
       await this.deselectPicture(draggablePicture);
+      if (this.isUnmount) {
+        return;
+      }
     }
     const { selectedPictures } = this.state;
     const newSelectedPicture = [...selectedPictures];
