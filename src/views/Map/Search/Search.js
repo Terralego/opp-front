@@ -22,11 +22,11 @@ const ID_SEARCH_ADVANCED = 'searchAdvanced_tab';
 
 const itemsPerPage = 5;
 
-const getValuesFilters = (schemaForm, { photographers, ...data }) => {
+const getValuesFilters = (schemaForm, { photographers, ...data }, t) => {
   const cleanedData = {
     ...data,
     photographers: photographers.map(item => ({
-      label: item.properties.name,
+      label: item.properties.name || t('map.photographerUnknown', { id: item.uuid.slice(0, 4) }),
       value: item.uuid,
     })),
   };
@@ -80,10 +80,11 @@ export class Search extends React.PureComponent {
   handleNavSearchTabChange = navTabId => this.setState({ navTabId });
 
   getFilters = async () => {
+    const { t } = this.props;
     try {
       const data = await fetchFilterOptions();
       const schema = getSchema(this.props);
-      const filters = await getValuesFilters(schema, data);
+      const filters = await getValuesFilters(schema, data, t);
       if (this.isUnmount) {
         return;
       }

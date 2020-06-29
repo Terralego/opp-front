@@ -28,7 +28,8 @@
       "number-viewpoints": "Viewpoints count:",
       "no-results": "Oops, there are no results for you request.",
       "access": "Access"
-    }
+    },
+    "photographerUnknown": "Unknown_{{id}}"
   },
   "form": {
     "fields": {
