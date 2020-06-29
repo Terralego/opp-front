@@ -17,26 +17,14 @@ exports[`should render 1`] = `
         onKeyDown={[Function]}
         onKeyUp={[Function]}
         type="button"
-      >
-        <span
-          className="bp3-button-text"
-        >
-          Reset
-        </span>
-      </button>
+      />
       <button
         className="bp3-button"
         disabled={false}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
         type="submit"
-      >
-        <span
-          className="bp3-button-text"
-        >
-          Search
-        </span>
-      </button>
+      />
     </div>
   </div>
 </form>
