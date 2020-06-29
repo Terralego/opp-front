@@ -22,14 +22,16 @@ const ID_SEARCH_ADVANCED = 'searchAdvanced_tab';
 
 const itemsPerPage = 5;
 
-const getValuesFilters = (schemaForm, data) => {
-  const { photographers } = data;
+const getValuesFilters = (schemaForm, { photographers, ...data }) => {
   const cleanedData = {
     ...data,
-    photographers: photographers.map(item => item.properties.name),
+    photographers: photographers.map(item => ({
+      label: item.properties.name,
+      value: item.uuid,
+    })),
   };
   return schemaForm.map(filter => {
-    const values = typeof cleanedData[filter.name] !== 'undefined'
+    const values = cleanedData[filter.name] !== undefined
       ? { values: cleanedData[filter.name] }
       : {};
     return { ...filter, ...values };

@@ -8,7 +8,7 @@ const removeEmptyProperties = obj =>
 
 const getIsoDate = date => date.toISOString().substr(0, 10);
 
-export function parsePropertiesToData (properties, { photographers }) {
+export function parsePropertiesToData (properties) {
   let data = removeEmptyProperties(properties);
   let parsedDate = {};
 
@@ -31,8 +31,7 @@ export function parsePropertiesToData (properties, { photographers }) {
 
   if (data.photographer) {
     const { photographer, ...props } = data;
-    const owner = photographers.find(p => p.properties.name === photographer);
-    data = { ...props, pictures__owner__uuid: owner.uuid };
+    data = { ...props, pictures__owner__uuid: photographer };
   }
 
   return data;
