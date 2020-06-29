@@ -88,7 +88,6 @@ export class Search extends React.PureComponent {
         return;
       }
       this.setState({
-        rawData: data,
         simplesSearchFilters: getFiltersBySearch(filters, configSimplesSearch),
         advancedSearchFilters: getFiltersBySearch(filters, configAdvancedSearch),
       });
@@ -108,7 +107,6 @@ export class Search extends React.PureComponent {
       navTabId,
       simplesSearchFilters,
       advancedSearchFilters,
-      rawData,
     } = this.state;
 
     return (
@@ -136,7 +134,6 @@ export class Search extends React.PureComponent {
               title={t('map.simple-search')}
               panel={(
                 <SearchForm
-                  rawData={rawData}
                   itemsPerPage={itemsPerPage}
                   filters={simplesSearchFilters}
                 />
@@ -149,7 +146,6 @@ export class Search extends React.PureComponent {
               title={t('map.advanced-search')}
               panel={(
                 <SearchForm
-                  rawData={rawData}
                   itemsPerPage={itemsPerPage}
                   filters={advancedSearchFilters}
                 />

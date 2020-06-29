@@ -59,11 +59,10 @@ export class SearchForm extends React.Component {
       getFirstPageFilteredViewpoints,
       forceResultUnfolding,
       itemsPerPage,
-      rawData,
       properties,
     } = this.props;
     this.setState({ isFormDisabled: true });
-    const data = properties ? parsePropertiesToData(properties, rawData) : {};
+    const data = properties ? parsePropertiesToData(properties) : {};
     const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
     res ? forceResultUnfolding() : toast.displayError('Le serveur est indisponible.');
     this.setState({ isFormDisabled: false });
