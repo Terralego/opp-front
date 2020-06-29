@@ -28,7 +28,8 @@
       "number-viewpoints": "Nombre de points de vue :",
       "no-results": "Oups, il n'y a pas de résultats à votre recherche.",
       "access": "Accéder"
-    }
+    },
+    "photographerUnknown": "Inconnu_{{id}}"
   },
   "form": {
     "fields": {
