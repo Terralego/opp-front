@@ -6,7 +6,6 @@ import { Button } from '@blueprintjs/core';
 import Filters from '@terralego/core/modules/Forms/Filters';
 import { toast } from '../../../../utils/toast';
 import { isDate, parsePropertiesToData } from '../../../../utils/helper/validateFormSearch';
-import translateMock from '../../../../utils/translate';
 
 import './search-form.scss';
 
@@ -28,10 +27,7 @@ export class SearchForm extends React.Component {
   static defaultProps = {
     filters: [],
     properties: {},
-    t: translateMock({
-      'form.reset': 'Reset',
-      'form.search': 'Search',
-    }),
+    t: () => {},
   };
 
   state = {
