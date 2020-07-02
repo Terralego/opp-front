@@ -20,7 +20,7 @@ export const SidebarActions = ({ viewpoint: { id, label } = {} }) => {
       <NavbarGroup className="navTop__viewpoint-detail" align={Alignment.CENTER}>
         <DownloadButton
           as={Button}
-          endpoint={`viewpoints/${id}/pdf`}
+          endpoint={`viewpoints/${id}/pdf/`}
           filename={`${label}.pdf`}
           size={25}
           className={Classes.MINIMAL}
