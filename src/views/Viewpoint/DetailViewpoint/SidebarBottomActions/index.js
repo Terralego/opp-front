@@ -30,7 +30,7 @@ export const SidebarActions = ({ viewpoint: { id, label } = {} }) => {
         </DownloadButton>
         <DownloadButton
           as={Button}
-          endpoint={`viewpoints/${id}/zip-pictures`}
+          endpoint={`viewpoints/${id}/zip-pictures/`}
           filename={`${label}.zip`}
           size={25}
           className={Classes.MINIMAL}
