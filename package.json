@@ -10,7 +10,7 @@
     "@blueprintjs/select": "~3.9.0",
     "@craco/craco": "~5.2.4",
     "@mapbox/mapbox-gl-sync-move": "^0.2.0",
-    "@terralego/core": "^1.22.0",
+    "@terralego/core": "^1.24.1",
     "classnames": "^2.2.6",
     "deepmerge": "^4.2.2",
     "file-saver": "~2.0.2",
