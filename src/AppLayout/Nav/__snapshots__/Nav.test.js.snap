@@ -5,7 +5,7 @@ exports[`should render 1`] = `
   className="bp3-navbar navBar bp3-dark main__header"
 >
   <div
-    className="bp3-navbar-heading"
+    className="bp3-navbar-heading navBar__header"
   >
     <span
       className="bp3-popover-wrapper"
