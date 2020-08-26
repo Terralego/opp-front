@@ -1,11 +1,24 @@
 import React,  { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 import { MainMenu } from '@terralego/core/components/MainMenu';
 
 import Logo from '../../components/Logo';
 import './nav.scss';
+
+const getLinkProps = link => (
+  !link.startsWith('http') && {
+    link: {
+      component: NavLink,
+      linkProps: {
+        exact: true,
+        hrefAttribute: 'to',
+      },
+    },
+  }
+);
 
 export const MainNav = ({ logo, logoUrl, resetMapInitialState, toggleSearchFoldedState }) => {
   const { t } = useTranslation();
@@ -16,6 +29,7 @@ export const MainNav = ({ logo, logoUrl, resetMapInitialState, toggleSearchFolde
       icon: <Logo src={logo} alt={t('menu.logoName')} />,
       label: t('menu.logoLink'),
       onClick: resetMapInitialState,
+      ...getLinkProps(logoUrl),
     },
     navItems: [[{
       href: '/',
@@ -23,6 +37,7 @@ export const MainNav = ({ logo, logoUrl, resetMapInitialState, toggleSearchFolde
       id: 'search',
       onClick: toggleSearchFoldedState,
       label: t('menu.search'),
+      ...getLinkProps('/'),
     }]],
   }), [logo, logoUrl, resetMapInitialState, t, toggleSearchFoldedState]);
 
