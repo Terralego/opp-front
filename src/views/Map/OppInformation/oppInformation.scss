@@ -69,10 +69,11 @@
   }
 
   .bp3-overlay-content {
+    display: flex;
+    flex-direction: column;
     bottom: 0;
-    top: 1280px;
-    width: 700px;
-    height: 300px;
+    max-width: 700px;
+    max-height: 300px;
     color: $white;
 
     &.bp3-overlay-enter-done {
@@ -91,6 +92,7 @@
     .bp3-overlay-subcontent {
       padding: 20px;
       background-color: #223947;
+      overflow: auto;
       @include rounded(0 0 8px 8px);
 
       h3 {
