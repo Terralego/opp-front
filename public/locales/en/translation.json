@@ -65,6 +65,14 @@
         },
         "noValues": "No value available"
       }
+    },
+    "map": {
+      "backgroundstyles_control": {
+        "button_label": "Map base layers"
+      },
+      "NavigationControl.ResetBearing": "Reset bearing to north",
+      "NavigationControl.ZoomIn": "Zoom in",
+      "NavigationControl.ZoomOut": "Zoom out"
     }
   },
   "viewPoint": {

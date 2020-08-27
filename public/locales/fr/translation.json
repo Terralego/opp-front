@@ -65,6 +65,14 @@
         },
         "noValues": "Aucune valeur disponible"
       }
+    },
+    "map": {
+      "backgroundstyles_control": {
+        "button_label": "Fonds de carte"
+      },
+      "NavigationControl.ResetBearing": "Orienter vers le nord",
+      "NavigationControl.ZoomIn": "Zoomer",
+      "NavigationControl.ZoomOut": "Dézoomer"
     }
   },
   "viewPoint": {
