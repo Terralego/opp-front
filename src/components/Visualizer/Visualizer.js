@@ -56,6 +56,11 @@ export class Visualizer extends React.Component {
       mapIsResizing,
       configMap,
       interactiveMapInit,
+      i18n: {
+        getResourceBundle,
+        language,
+        store: { options: { fallbackLng } },
+      },
     } = this.props;
 
     if (!configMap.accessToken || !configMap.backgroundStyle) {
@@ -63,6 +68,8 @@ export class Visualizer extends React.Component {
         <MapErrorConfiguration className="visualizer-error" />
       );
     }
+
+    const { terralego: { map: mapLocale } } = getResourceBundle(language.split('-')[0]) || getResourceBundle(fallbackLng[0]);
 
     return (
       <div
@@ -84,6 +91,7 @@ export class Visualizer extends React.Component {
           onInit={interactiveMapInit}
           className={Classes.DARK}
           translate={t}
+          locale={mapLocale}
         />
       </div>
     );
