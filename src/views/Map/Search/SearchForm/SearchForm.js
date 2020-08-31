@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '@blueprintjs/core';
@@ -9,82 +9,70 @@ import { isDate, parsePropertiesToData } from '../../../../utils/helper/validate
 
 import './search-form.scss';
 
-export class SearchForm extends React.Component {
-  state = {
-    // Inform user of state of form : 0 = clickable, 1 = disabled
-    isFormDisabled: false,
-    isResetFormDisabled: false,
-  };
+export const SearchForm = ({
+  filters,
+  forceResultUnfolding,
+  getFirstPageFilteredViewpoints,
+  itemsPerPage,
+  properties,
+  resetMapInitialState,
+  resetSearchForm,
+  setProperties,
+  t,
+}) => {
+  // Inform user of state of form : true = clickable, false = disabled
+  const [isFormDisabled, setFormDisabled] = useState(false);
+  const [isResetFormDisabled, setResetFormDisabled] = useState(false);
 
-
-  onChange = properties => {
-    const { setProperties } = this.props;
-    setProperties(properties);
-  };
-
-  onReset = async () => {
-    const {
-      resetMapInitialState,
-      resetSearchForm,
-    } = this.props;
-    this.setState({ isResetFormDisabled: true });
+  const onReset = useCallback(async () => {
+    setResetFormDisabled(true);
     await resetSearchForm();
     resetMapInitialState();
-    this.setState({ isResetFormDisabled: false });
-  };
+    setResetFormDisabled(false);
+  }, [resetMapInitialState, resetSearchForm]);
 
-  onSubmit = async event => {
+  const onSubmit = useCallback(async event => {
     event.preventDefault();
-    const {
-      getFirstPageFilteredViewpoints,
-      forceResultUnfolding,
-      itemsPerPage,
-      properties,
-    } = this.props;
-    this.setState({ isFormDisabled: true });
+    setFormDisabled(true);
     const data = properties ? parsePropertiesToData(properties) : {};
     const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
     res ? forceResultUnfolding() : toast.displayError('Le serveur est indisponible.');
-    this.setState({ isFormDisabled: false });
-  };
+    setFormDisabled(false);
+  }, [forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, properties]);
 
-  render () {
-    const { isFormDisabled, isResetFormDisabled } = this.state;
-    const { filters, properties, t } = this.props;
+  const isDateInvalid = useMemo(() => (
+    properties.viewpointDate && properties.viewpointDate.some(date => !isDate(date))
+  ), [properties.viewpointDate]);
 
-    const isDateInvalid = properties.viewpointDate
-      && !properties.viewpointDate.every(date => isDate(date));
-
-    return (
-      <form
-        className="filters"
-        onSubmit={this.onSubmit}
-      >
-        <div>
-          <Filters
-            onChange={this.onChange}
-            properties={properties}
-            filters={filters}
-            translate={t}
+  return (
+    <form
+      className="filters"
+      onSubmit={onSubmit}
+    >
+      <div>
+        <Filters
+          onChange={setProperties}
+          properties={properties}
+          filters={filters}
+          translate={t}
+        />
+        <div className="action-search">
+          <Button
+            text={t('form.reset')}
+            loading={isResetFormDisabled}
+            onClick={onReset}
           />
-          <div className="action-search">
-            <Button
-              text={t('form.reset')}
-              loading={isResetFormDisabled}
-              onClick={this.onReset}
-            />
-            <Button
-              text={t('form.search')}
-              type="submit"
-              loading={isFormDisabled}
-              disabled={isDateInvalid || isFormDisabled}
-            />
-          </div>
+          <Button
+            text={t('form.search')}
+            type="submit"
+            loading={isFormDisabled}
+            disabled={isDateInvalid || isFormDisabled}
+          />
         </div>
-      </form>
-    );
-  }
-}
+      </div>
+    </form>
+  );
+};
 
 export default SearchForm;
 
