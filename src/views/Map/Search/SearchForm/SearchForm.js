@@ -36,9 +36,9 @@ export const SearchForm = ({
     setFormDisabled(true);
     const data = properties ? parsePropertiesToData(properties) : {};
     const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
-    res ? forceResultUnfolding() : toast.displayError('Le serveur est indisponible.');
+    res ? forceResultUnfolding() : toast.displayError(t('error.unavailable'));
     setFormDisabled(false);
-  }, [forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, properties]);
+  }, [forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, properties, t]);
 
   const isDateInvalid = useMemo(() => (
     properties.viewpointDate && properties.viewpointDate.some(date => !isDate(date))
