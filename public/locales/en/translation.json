@@ -6,7 +6,8 @@
     "404": {
       "title": "404: Not found.",
       "message": "Back to <1>homepage</1>"
-    }
+    },
+    "unavailable": "The server is unavailable."
   },
   "common": {
     "close": "Close",
