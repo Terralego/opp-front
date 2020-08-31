@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '@blueprintjs/core';
@@ -24,9 +24,17 @@ export const SearchForm = ({
   const [isFormDisabled, setFormDisabled] = useState(false);
   const [isResetFormDisabled, setResetFormDisabled] = useState(false);
 
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    isMounted.current = true;
+    return () => { isMounted.current = false; };
+  }, []);
+
   const onReset = useCallback(async () => {
     setResetFormDisabled(true);
     await resetSearchForm();
+    if (!isMounted.current) return;
     resetMapInitialState();
     setResetFormDisabled(false);
   }, [resetMapInitialState, resetSearchForm]);
@@ -37,6 +45,7 @@ export const SearchForm = ({
     const data = properties ? parsePropertiesToData(properties) : {};
     const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
     res ? forceResultUnfolding() : toast.displayError(t('error.unavailable'));
+    if (!isMounted.current) return;
     setFormDisabled(false);
   }, [forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, properties, t]);
 
