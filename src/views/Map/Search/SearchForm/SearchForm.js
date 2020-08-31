@@ -31,6 +31,12 @@ export const SearchForm = ({
     return () => { isMounted.current = false; };
   }, []);
 
+  const filteredProperties = useMemo(() => (
+    Object.entries(properties).reduce((list, [key, value]) => (
+      filters.find(item => item.property === key) ? ({ ...list, [key]: value }) : list
+    ), {})
+  ), [filters, properties]);
+
   const onReset = useCallback(async () => {
     setResetFormDisabled(true);
     await resetSearchForm();
@@ -42,12 +48,12 @@ export const SearchForm = ({
   const onSubmit = useCallback(async event => {
     event.preventDefault();
     setFormDisabled(true);
-    const data = properties ? parsePropertiesToData(properties) : {};
+    const data = filteredProperties ? parsePropertiesToData(filteredProperties) : {};
     const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
     res ? forceResultUnfolding() : toast.displayError(t('error.unavailable'));
     if (!isMounted.current) return;
     setFormDisabled(false);
-  }, [forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, properties, t]);
+  }, [filteredProperties, forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, t]);
 
   const isDateInvalid = useMemo(() => (
     properties.viewpointDate && properties.viewpointDate.some(date => !isDate(date))
@@ -61,7 +67,7 @@ export const SearchForm = ({
       <div>
         <Filters
           onChange={setProperties}
-          properties={properties}
+          properties={filteredProperties}
           filters={filters}
           translate={t}
         />
