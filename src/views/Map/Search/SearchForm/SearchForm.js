@@ -10,26 +10,6 @@ import { isDate, parsePropertiesToData } from '../../../../utils/helper/validate
 import './search-form.scss';
 
 export class SearchForm extends React.Component {
-  static propTypes = {
-    filters: PropTypes.arrayOf(
-      PropTypes.object,
-    ),
-    properties: PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-      ]),
-    ),
-    t: PropTypes.func,
-  };
-
-  static defaultProps = {
-    filters: [],
-    properties: {},
-    t: () => {},
-  };
-
   state = {
     // Inform user of state of form : 0 = clickable, 1 = disabled
     isFormDisabled: false,
@@ -107,3 +87,23 @@ export class SearchForm extends React.Component {
 }
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+  filters: PropTypes.arrayOf(
+    PropTypes.object,
+  ),
+  properties: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ),
+  t: PropTypes.func,
+};
+
+SearchForm.defaultProps = {
+  filters: [],
+  properties: {},
+  t: () => {},
+};
