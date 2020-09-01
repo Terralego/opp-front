@@ -57,4 +57,21 @@
     border-radius: 50%;
     border: 2px solid darkred;
   }
+
+  .compare_placeholder {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    max-width: 12rem;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+
+    svg {
+      margin: 0.5rem auto;
+    }
+  }
 }

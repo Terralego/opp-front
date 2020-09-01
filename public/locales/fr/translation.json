@@ -77,6 +77,9 @@
     }
   },
   "viewPoint": {
+    "compare": {
+      "placeholder": "Glissez la photographie à comparer ici ou cliquez sur les vignettes"
+    },
     "detail": {
       "download": {
         "PDF": "Voir la fiche complète",
