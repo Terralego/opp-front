@@ -140,8 +140,8 @@ export class ComparePictures extends React.Component {
         <div className="content__compare" ref={this.compareDivRef}>
           {selectedPictures.map((selectedPicture, index) => (
             <CompareItem
-              // eslint-disable-next-line
-              key={(selectedPicture && selectedPicture.id) || `key-${index}`}
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
               picture={selectedPicture}
               index={index}
               onDrop={onDrop}
