@@ -1,8 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
+import { Icon } from '@blueprintjs/core';
 
 import './compare-item.scss';
 import { useDrop } from 'react-dnd';
+
+import { useTranslation } from 'react-i18next';
+import DragNDropPicture from './DragNDropPicture';
 
 export const CompareItem = ({
   picture,
@@ -24,6 +28,8 @@ export const CompareItem = ({
     collect: monitor => ({ isOver: !!monitor.isOver(), canDrop: !!monitor.canDrop() }),
   });
 
+  const { t } = useTranslation();
+
   return (
     <div ref={drop} className={classnames('compare_transform', { canDrop, isOver })}>
       <div
@@ -31,8 +37,8 @@ export const CompareItem = ({
         role="presentation"
         style={{
           backgroundImage: (picture && picture.file) ? `url(${picture.file.full})` : '',
-          transform: scale > 1 ? transform : '',
-          transformOrigin: scale > 1 ? transformOrigin : '',
+          transform: (scale > 1 && picture) ? transform : '',
+          transformOrigin: (scale > 1 && picture) ? transformOrigin : '',
         }}
         onDragOver={onDragOver}
         onDrop={event => onDrop(event, index)}
@@ -52,6 +58,12 @@ export const CompareItem = ({
               display: `${showReticule ? 'block' : 'none'}`,
             }}
           />
+        )}
+        {!picture && (
+          <div className="compare_placeholder">
+            <em>{t('viewPoint.compare.placeholder')}</em>
+            <Icon icon={<DragNDropPicture />} iconSize={80} />
+          </div>
         )}
       </div>
     </div>
