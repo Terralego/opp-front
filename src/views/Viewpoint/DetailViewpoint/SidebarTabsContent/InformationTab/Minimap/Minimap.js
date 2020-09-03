@@ -14,14 +14,7 @@ const Minimap = ({
   configMap: { zoom, ...configMap },
   coordinates,
 }) => {
-  const {
-    i18n: {
-      getResourceBundle,
-      language,
-      store: { options: { fallbackLng } },
-    },
-    t,
-  } = useTranslation();
+  const { t } = useTranslation();
 
   const layers = [{
     id: 'viewpoint',
@@ -61,13 +54,10 @@ const Minimap = ({
     );
   }
 
-  const { terralego: { map: locale } } = getResourceBundle(language.split('-')[0]) || getResourceBundle(fallbackLng[0]);
-
   return (
     <div className="minimap">
       <InteractiveMap
         {...props}
-        locale={locale}
         onStyleChange={(_, map) => addCustomIcon(map)}
         translate={t}
       />
