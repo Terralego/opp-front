@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import Map, {
-  CONTROL_ATTRIBUTION,
-  CONTROLS_BOTTOM_RIGHT,
-} from '@terralego/core/modules/Map/Map';
-import SyncMaps, { SyncedMap } from '@terralego/core/modules/Map/SyncMaps';
+import { CONTROLS_BOTTOM_RIGHT } from '@terralego/core/modules/Map/Map';
+import InteractiveMap, { CONTROL_BACKGROUND_STYLES } from '@terralego/core/modules/Map/InteractiveMap';
+import { useTranslation } from 'react-i18next';
 
 import { addCustomIcon } from '../../../../../../components/Visualizer/Visualizer';
 import MapErrorConfiguration from '../../../../../../components/MapErrorConfiguration';
@@ -13,14 +11,17 @@ import MapErrorConfiguration from '../../../../../../components/MapErrorConfigur
 import './syncmap.scss';
 
 const SyncMap = ({
-  configMap: { accessToken, backgroundStyle, zoom, ...restConfigMap },
+  configMap: { zoom, ...configMap },
   coordinates,
 }) => {
-  if (!accessToken || !backgroundStyle) {
-    return (
-      <MapErrorConfiguration />
-    );
-  }
+  const {
+    i18n: {
+      getResourceBundle,
+      language,
+      store: { options: { fallbackLng } },
+    },
+    t,
+  } = useTranslation();
 
   const layers = [{
     id: 'viewpoint',
@@ -40,40 +41,34 @@ const SyncMap = ({
     },
   }];
 
-  const sharedProps = {
-    displayAttributionControl: false,
-    displayNavigationControl: false,
-    displayScaleControl: false,
-    ...restConfigMap,
-    accessToken,
+  const props = useMemo(() => ({
+    ...configMap,
     customStyle: { layers },
     zoom: zoom + 1,
     center: coordinates,
     onMapInit: addCustomIcon,
     controls: [{
-      control: CONTROL_ATTRIBUTION,
+      control: CONTROL_BACKGROUND_STYLES,
       position: CONTROLS_BOTTOM_RIGHT,
     }],
-  };
+  }), [configMap, coordinates, layers, zoom]);
 
-  const [plan, satellite] = backgroundStyle;
+  if (!configMap.accessToken || !configMap.backgroundStyle) {
+    return (
+      <MapErrorConfiguration />
+    );
+  }
+
+  const { terralego: { map: locale } } = getResourceBundle(language.split('-')[0]) || getResourceBundle(fallbackLng[0]);
 
   return (
-    <div id="map-line">
-      <SyncMaps>
-        <SyncedMap>
-          <Map
-            {...sharedProps}
-            backgroundStyle={plan.url}
-          />
-        </SyncedMap>
-        <SyncedMap>
-          <Map
-            {...sharedProps}
-            backgroundStyle={satellite.url}
-          />
-        </SyncedMap>
-      </SyncMaps>
+    <div className="minimap">
+      <InteractiveMap
+        {...props}
+        locale={locale}
+        onStyleChange={(_, map) => addCustomIcon(map)}
+        translate={t}
+      />
     </div>
   );
 };
@@ -81,8 +76,10 @@ const SyncMap = ({
 SyncMap.propTypes = {
   configMap: PropTypes.shape({
     accessToken: PropTypes.string,
-    backgroundDefault: PropTypes.string,
-    backgroundSatellite: PropTypes.string,
+    backgroundStyle: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+      PropTypes.string,
+    ]),
     center: PropTypes.arrayOf(PropTypes.number),
     zoom: PropTypes.number,
     maxBounds: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.array), PropTypes.bool]),
