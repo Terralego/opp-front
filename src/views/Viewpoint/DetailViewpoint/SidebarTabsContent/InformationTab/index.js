@@ -5,7 +5,7 @@ import CollapsiblePanel from '../../../../../components/CollapsiblePanel';
 import DateDisplay from '../../../../../components/DateDisplay';
 
 import { connectViewpointProvider } from '../../../context';
-import SyncMap from './SyncMap';
+import Minimap from './Minimap';
 
 export const InformationTab = ({ viewpoint: { pictures, properties: {
   voie, commune, site, themes,
@@ -14,7 +14,7 @@ export const InformationTab = ({ viewpoint: { pictures, properties: {
   return (
     <div className="panel-details">
       <CollapsiblePanel title={t('viewPoint.detail.information.location')}>
-        <SyncMap />
+        <Minimap />
         {(voie || commune || site) && (
         <IconBlock
           title={t('viewPoint.detail.information.locationContent')}

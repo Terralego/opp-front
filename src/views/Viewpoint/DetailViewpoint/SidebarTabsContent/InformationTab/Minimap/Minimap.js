@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next';
 import { addCustomIcon } from '../../../../../../components/Visualizer/Visualizer';
 import MapErrorConfiguration from '../../../../../../components/MapErrorConfiguration';
 
-import './syncmap.scss';
+import './Minimap.scss';
 
-const SyncMap = ({
+const Minimap = ({
   configMap: { zoom, ...configMap },
   coordinates,
 }) => {
@@ -39,6 +39,7 @@ const SyncMap = ({
       'icon-anchor': 'bottom',
       'icon-allow-overlap': true,
     },
+    weight: 850,
   }];
 
   const props = useMemo(() => ({
@@ -52,6 +53,7 @@ const SyncMap = ({
       position: CONTROLS_BOTTOM_RIGHT,
     }],
   }), [configMap, coordinates, layers, zoom]);
+
 
   if (!configMap.accessToken || !configMap.backgroundStyle) {
     return (
@@ -73,7 +75,7 @@ const SyncMap = ({
   );
 };
 
-SyncMap.propTypes = {
+Minimap.propTypes = {
   configMap: PropTypes.shape({
     accessToken: PropTypes.string,
     backgroundStyle: PropTypes.oneOfType([
@@ -87,10 +89,10 @@ SyncMap.propTypes = {
   coordinates: PropTypes.arrayOf(PropTypes.number),
 };
 
-SyncMap.defaultProps = {
+Minimap.defaultProps = {
   configMap: {},
   coordinates: [],
 };
 
 
-export default SyncMap;
+export default Minimap;
