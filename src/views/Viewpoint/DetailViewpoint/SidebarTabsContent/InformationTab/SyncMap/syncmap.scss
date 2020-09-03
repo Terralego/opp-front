@@ -1,16 +1,7 @@
-#map-line {
-  display: flex;
-  flex-direction: row;
+.minimap {
 
-  .mapboxgl-map {
-    width: 50%;
-    padding-bottom: 25%;
-    position: relative;
-
-    .mapboxgl-canvas {
-      top: 0;
-      height: auto !important;
-      width: 100% !important;
-    }
+  .interactive-map {
+    width: 100%;
+    height: 350px;
   }
 }
