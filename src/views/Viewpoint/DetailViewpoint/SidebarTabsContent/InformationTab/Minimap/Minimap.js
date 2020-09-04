@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { CONTROLS_BOTTOM_RIGHT } from '@terralego/core/modules/Map/Map';
+import { CONTROLS_BOTTOM_RIGHT, CONTROLS_BOTTOM_LEFT, CONTROL_SCALE } from '@terralego/core/modules/Map/Map';
 import InteractiveMap, { CONTROL_BACKGROUND_STYLES } from '@terralego/core/modules/Map/InteractiveMap';
 import { useTranslation } from 'react-i18next';
 
@@ -44,6 +44,9 @@ const Minimap = ({
     controls: [{
       control: CONTROL_BACKGROUND_STYLES,
       position: CONTROLS_BOTTOM_RIGHT,
+    }, {
+      control: CONTROL_SCALE,
+      position: CONTROLS_BOTTOM_LEFT,
     }],
   }), [configMap, coordinates, layers, zoom]);
 
