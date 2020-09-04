@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { CONTROLS_BOTTOM_RIGHT, CONTROLS_BOTTOM_LEFT, CONTROL_SCALE } from '@terralego/core/modules/Map/Map';
 import InteractiveMap, { CONTROL_BACKGROUND_STYLES } from '@terralego/core/modules/Map/InteractiveMap';
 import { useTranslation } from 'react-i18next';
+import merge from 'deepmerge';
 
 import { addCustomIcon } from '../../../../../../components/Visualizer/Visualizer';
 import MapErrorConfiguration from '../../../../../../components/MapErrorConfiguration';
@@ -11,10 +12,13 @@ import MapErrorConfiguration from '../../../../../../components/MapErrorConfigur
 import './Minimap.scss';
 
 const Minimap = ({
-  configMap: { zoom, ...configMap },
+  configMap,
+  configMiniMap,
   coordinates,
 }) => {
   const { t } = useTranslation();
+
+  const config = useMemo(() => merge.all([configMap, configMiniMap]), [configMap, configMiniMap]);
 
   const layers = [{
     id: 'viewpoint',
@@ -36,9 +40,8 @@ const Minimap = ({
   }];
 
   const props = useMemo(() => ({
-    ...configMap,
+    ...config,
     customStyle: { layers },
-    zoom: zoom + 1,
     center: coordinates,
     onMapInit: addCustomIcon,
     controls: [{
@@ -48,7 +51,7 @@ const Minimap = ({
       control: CONTROL_SCALE,
       position: CONTROLS_BOTTOM_LEFT,
     }],
-  }), [configMap, coordinates, layers, zoom]);
+  }), [config, coordinates, layers]);
 
 
   if (!configMap.accessToken || !configMap.backgroundStyle) {
