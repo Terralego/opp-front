@@ -7,12 +7,12 @@ import {
 export const getSchema = ({ i18n: { language }, t }) => [
   {
     name: 'cities',
-    property: 'properties__commune',
+    property: 'city',
     label: t('form.fields.cities'),
     type: TYPE_SINGLE,
   }, {
     name: 'themes',
-    property: 'properties__themes',
+    property: 'themes',
     label: t('form.fields.themes'),
     type: TYPE_MANY,
     placeholder: t('form.fields.themesPlaceholder'),
