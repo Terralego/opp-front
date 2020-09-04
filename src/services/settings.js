@@ -10,7 +10,7 @@ const DEFAULT_SETTINGS = {
   credits: 'Source: TerraOpp',
   map: {
     minZoom: 6,
-    maxZoom: 17,
+    maxZoom: 20,
   },
   theme: {
     logo: '/images/logo.png',
