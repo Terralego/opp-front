@@ -7,20 +7,28 @@ import DateDisplay from '../../../../../components/DateDisplay';
 import { connectViewpointProvider } from '../../../context';
 import Minimap from './Minimap';
 
-export const InformationTab = ({ viewpoint: { pictures, properties: {
-  voie, commune, site, themes,
-} } }) => {
+export const InformationTab = ({
+  viewpoint: {
+    city,
+    pictures,
+    themes,
+    properties: {
+      site,
+      voie,
+    },
+  },
+}) => {
   const { t } = useTranslation();
   return (
     <div className="panel-details">
       <CollapsiblePanel title={t('viewPoint.detail.information.location')}>
         <Minimap />
-        {(voie || commune || site) && (
+        {(voie || city || site) && (
         <IconBlock
           title={t('viewPoint.detail.information.locationContent')}
           icon="map-marker"
           content={
-            `${site} ${voie} ${commune}`
+            `${site} ${voie} ${city}`
           }
         />
         )}

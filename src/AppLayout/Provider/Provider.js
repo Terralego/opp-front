@@ -60,7 +60,7 @@ export class AppProvider extends React.Component {
         point: geometry,
         id,
         label,
-        commune,
+        city,
         picture: { thumbnail },
       }) => ({
         geometry,
@@ -68,7 +68,7 @@ export class AppProvider extends React.Component {
           viewpoint_id: id,
           viewpoint_label: label,
           viewpoint_picture: thumbnail,
-          viewpoint_commune: commune,
+          viewpoint_city: city,
         },
       }));
 

@@ -34,7 +34,7 @@ export function getInteractions (API_PROVIDER, history) {
 [![]({{ viewpoint_picture }})](/viewpoint/{{ viewpoint_id }})
 
 [{{ viewpoint_label }}](/viewpoint/{{ viewpoint_id }})<br/>
-{{ viewpoint_commune }}
+{{ viewpoint_city }}
 `,
       unique: true,
       fixed: true,

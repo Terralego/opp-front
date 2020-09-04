@@ -13,7 +13,7 @@ export const ClusterList = ({ features, history }) => (
           <Menu.Item
             key={feature.properties[ID]}
             onClick={() => history.push(`/viewpoint/${feature.properties.viewpoint_id}`)}
-            text={feature.properties.viewpoint_label + ', ' + feature.properties.viewpoint_commune}
+            text={feature.properties.viewpoint_label + ', ' + feature.properties.viewpoint_city}
             className="capitalize"
           />
         ))}
