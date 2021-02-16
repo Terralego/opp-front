@@ -55,6 +55,7 @@ export class Visualizer extends React.Component {
       env: { API_PROVIDER },
       mapIsResizing,
       configMap,
+      settings,
       interactiveMapInit,
       i18n: {
         getResourceBundle,
@@ -73,6 +74,12 @@ export class Visualizer extends React.Component {
       terralego: { map: mapLocale },
     } = getResourceBundle(language.split('-')[0]) || getResourceBundle(fallbackLng[0]);
 
+    const customStyle = getCustomStyle({
+      apiProvider: API_PROVIDER,
+      layerId: settings.layerId,
+      layerName: settings.layerName,
+    });
+
     return (
       <div
         className={classnames({
@@ -88,7 +95,7 @@ export class Visualizer extends React.Component {
           {...configMap}
           hash
           history={history}
-          customStyle={getCustomStyle(API_PROVIDER)}
+          customStyle={customStyle}
           interactions={getInteractions(API_PROVIDER, history)}
           onInit={interactiveMapInit}
           className={Classes.DARK}
