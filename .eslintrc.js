@@ -5,6 +5,12 @@ const always = 'always';
 
 module.exports = {
   root: true,
+  "env":{
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+  },
   extends: ['makina', 'prettier'],
   // Custom rules
   rules: {

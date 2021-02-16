@@ -7,8 +7,9 @@ import withEnv from '../../config/withEnv';
 
 import Visualizer from './Visualizer';
 
-export default connectSettingsProvider(({ env: { map } }) => ({
-  configMap: map,
+export default connectSettingsProvider(({ env }) => ({
+  configMap: env.map,
+  settings: env,
 }))(
   connectAppProvider({
     filteredViewpoints: 'filteredViewpoints.current',

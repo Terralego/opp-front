@@ -1,10 +1,10 @@
-export function getCustomStyle(API_PROVIDER) {
+export function getCustomStyle({ apiProvider, layerId, layerName }) {
   return {
     sources: [
       {
         id: 'OPP',
         type: 'vector',
-        tiles: [`${API_PROVIDER}/layer/1/tiles/{z}/{x}/{y}/`],
+        tiles: [`${apiProvider}/layer/${layerId}/tiles/{z}/{x}/{y}/`],
       },
     ],
     layers: [
@@ -32,7 +32,7 @@ export function getCustomStyle(API_PROVIDER) {
           'icon-anchor': 'bottom',
           'icon-allow-overlap': true,
         },
-        'source-layer': 'Base opp layer',
+        'source-layer': layerName,
         weight: 850,
       },
       {
@@ -46,7 +46,7 @@ export function getCustomStyle(API_PROVIDER) {
           'icon-allow-overlap': true,
         },
         filter: false,
-        'source-layer': 'Base opp layer',
+        'source-layer': layerName,
         weight: 850,
       },
     ],

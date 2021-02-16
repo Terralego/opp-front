@@ -35,7 +35,7 @@ export const getSettings = async () => {
   if (APISettings.map === undefined) {
     APISettings.map = APISettings.configMap;
   }
-  return merge.all([DEFAULT_SETTINGS, customSettings, APISettings]);
+  return merge.all([DEFAULT_SETTINGS, customSettings, APISettings, APISettings?.modules?.OPP || {}]);
 };
 
 export default getSettings;
