@@ -11,6 +11,7 @@ module.exports = {
     'operator-linebreak': [off],
     'react/destructuring-assignment': [error],
     'react/no-this-in-sfc': [error],
+    'react/jsx-wrap-multilines': [off],
     'react/no-access-state-in-setstate': [error],
   },
 };
