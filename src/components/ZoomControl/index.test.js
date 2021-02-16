@@ -8,9 +8,9 @@ it('should render', () => {
   const step = 0.5;
   const scale = 1;
 
-  const tree = renderer.create((
-    <ZoomControl scale={scale} step={step} onChange={onChange} />
-  )).toJSON();
+  const tree = renderer
+    .create(<ZoomControl scale={scale} step={step} onChange={onChange} />)
+    .toJSON();
 
   expect(tree).toMatchSnapshot();
 });

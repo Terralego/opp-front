@@ -1,14 +1,17 @@
-const isEmpty = value => value.length < 1
-  || (Array.isArray(value) && !value.some(elem => elem !== null))
-  || (typeof value === 'string' && value === '');
+const isEmpty = value =>
+  value.length < 1 ||
+  (Array.isArray(value) && !value.some(elem => elem !== null)) ||
+  (typeof value === 'string' && value === '');
 
 const removeEmptyProperties = obj =>
-  Object.keys(obj).reduce((acc, key) =>
-    (isEmpty(obj[key]) ? acc : { ...acc, [key]: obj[key] }), {});
+  Object.keys(obj).reduce(
+    (acc, key) => (isEmpty(obj[key]) ? acc : { ...acc, [key]: obj[key] }),
+    {},
+  );
 
 const getIsoDate = date => date.toISOString().substr(0, 10);
 
-export function parsePropertiesToData (properties) {
+export function parsePropertiesToData(properties) {
   let data = removeEmptyProperties(properties);
   let parsedDate = {};
 
@@ -21,9 +24,10 @@ export function parsePropertiesToData (properties) {
       };
     } else {
       const pos = data.viewpointDate.findIndex(date => date !== null);
-      parsedDate = pos === 0
-        ? { date_from: getIsoDate(data.viewpointDate[pos]) }
-        : { date_to: getIsoDate(data.viewpointDate[pos]) };
+      parsedDate =
+        pos === 0
+          ? { date_from: getIsoDate(data.viewpointDate[pos]) }
+          : { date_to: getIsoDate(data.viewpointDate[pos]) };
     }
 
     data = { ...props, ...parsedDate };

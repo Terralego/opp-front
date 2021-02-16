@@ -4,7 +4,10 @@ import throttle from 'throttleit';
 
 import CompareItem from './CompareItem';
 import { ZoomControl } from '../../../components/ZoomControl';
-import { getAllowedTranslation, getDimensionsToCenterCoordinates } from '../../../utils/helper/domGeometry';
+import {
+  getAllowedTranslation,
+  getDimensionsToCenterCoordinates,
+} from '../../../utils/helper/domGeometry';
 import { getZoom, getNewScale } from '../../../utils/helper/pictures';
 
 import './compare-pictures.scss';
@@ -26,7 +29,7 @@ export class ComparePictures extends React.Component {
 
   panningInitialPosition = {};
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('mouseup', this.onMouseUp);
   }
 
@@ -39,7 +42,7 @@ export class ComparePictures extends React.Component {
     event.preventDefault();
     // Prevent to drop any element other than an image
     // Avoid than draggablePicture be apply when elem is not an image
-    if ((/[^/]+(jpe?g|png)$/).test(event.dataTransfer.getData('text'))) {
+    if (/[^/]+(jpe?g|png)$/.test(event.dataTransfer.getData('text'))) {
       const { handleDropPicture } = this.props;
       handleDropPicture(index);
     }
@@ -115,24 +118,17 @@ export class ComparePictures extends React.Component {
   onChange = value => {
     const { x, y } = this.getPictureCenter();
     this.setState(getZoom(x, y, value));
-  }
+  };
 
-  getPictureCenter = () => getDimensionsToCenterCoordinates(
-    this.compareDivRef.current.childNodes[0].getBoundingClientRect(),
-  );
+  getPictureCenter = () =>
+    getDimensionsToCenterCoordinates(
+      this.compareDivRef.current.childNodes[0].getBoundingClientRect(),
+    );
 
-
-  render () {
+  render() {
     const { mousePosition, reticules, translate, scale, transformOrigin } = this.state;
     const { selectedPictures } = this.props;
-    const {
-      onDrop,
-      onDragOver,
-      toggleReticule,
-      onMouseMove,
-      onMouseDown,
-      onWheel,
-    } = this;
+    const { onDrop, onDragOver, toggleReticule, onMouseMove, onMouseDown, onWheel } = this;
     const activateReticule = selectedPictures.every(elem => elem !== null);
 
     return (
@@ -151,7 +147,7 @@ export class ComparePictures extends React.Component {
               toggleReticule={toggleReticule}
               activateReticule={activateReticule}
               mousePosition={mousePosition}
-              showReticule={reticules[+(!index)]}
+              showReticule={reticules[+!index]}
               onWheel={throttle(onWheel, 150)}
               transform={`scale(${scale}) translate(${translate.x}px, ${translate.y}px)`}
               transformOrigin={`${transformOrigin.x}px ${transformOrigin.y}px`}
@@ -166,4 +162,4 @@ export class ComparePictures extends React.Component {
   }
 }
 
-export default (ComparePictures);
+export default ComparePictures;

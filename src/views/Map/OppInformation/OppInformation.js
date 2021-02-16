@@ -40,11 +40,11 @@ export const OppInformation = ({ className, isOpen: defaultOpened }) => {
           <div className="opp-information-overlay__title">
             <h2>Information</h2>
             <Button
-              icon={(
+              icon={
                 <Tooltip content={t('common.close')} position={Position.TOP_LEFT}>
                   <Icon icon="cross" iconSize="34" color="#fff" />
                 </Tooltip>
-              )}
+              }
               onClick={toggleOpen}
             />
           </div>
@@ -62,7 +62,6 @@ OppInformation.propTypes = {
   className: PropTypes.string,
   isOpen: PropTypes.bool,
 };
-
 
 OppInformation.defaultProps = {
   className: '',

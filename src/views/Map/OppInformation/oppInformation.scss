@@ -1,16 +1,15 @@
-@import "../../../variables";
+@import '../../../variables';
 
 .opp-information {
-
   &__overlay {
     display: flex;
     justify-content: center;
     @include rounded(8px);
-    
+
     &.bp3-overlay-scroll-container {
       overflow: hidden;
     }
-    
+
     .bp3-overlay-backdrop {
       &.bp3-overlay-enter-done {
         left: $navbar-width;
@@ -24,13 +23,13 @@
     left: 2.5rem;
     background-color: $mapPopup;
     background-image: none;
-  
+
     &:hover {
       text-decoration: none;
       background-color: rgba(71, 93, 109, 0.96);
       color: #ffffff;
     }
-  
+
     > span {
       color: $white;
     }
@@ -45,7 +44,7 @@
     background: $activetabgray;
     position: relative;
     @include rounded(8px 8px 0 0);
-    border-bottom: 2px solid rgba(16, 22, 26, 0.40);
+    border-bottom: 2px solid rgba(16, 22, 26, 0.4);
 
     button.bp3-button {
       border: none;
@@ -63,7 +62,6 @@
         background-image: none;
         box-shadow: none;
         opacity: 0.8;
-
       }
     }
   }
@@ -84,7 +82,7 @@
       padding: 0 20px;
       font-family: $base-font;
       font-size: 22px;
-      color: #F5F8FA;
+      color: #f5f8fa;
       line-height: $base-line-height;
       font-weight: 200;
     }
@@ -98,7 +96,7 @@
       h3 {
         font-family: $base-font;
         font-size: 18px;
-        color: #F5F8FA;
+        color: #f5f8fa;
         margin: 0.5em 0;
         font-weight: 200;
       }
@@ -106,7 +104,7 @@
       p {
         font-family: $base-font;
         font-size: 14px;
-        color: #F5F8FA;
+        color: #f5f8fa;
         line-height: $base-line-height;
       }
 

@@ -5,7 +5,8 @@ import { initReactI18next } from 'react-i18next';
 
 const { PUBLIC_URL, REACT_APP_DEBUG } = process.env;
 
-i18n.use(XHR)
+i18n
+  .use(XHR)
   .use(LanguageDetector)
   .use(initReactI18next) // if not using I18nextProvider
   .init({

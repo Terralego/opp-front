@@ -25,10 +25,7 @@ const ResultItem = ({
   >
     <h3 className="result-title">{label}</h3>
     <img className="result-picture" src={picture} alt={label} />
-    <Button
-      className="result-action"
-      text={t('map.results.access')}
-    />
+    <Button className="result-action" text={t('map.results.access')} />
   </Link>
 );
 
@@ -43,8 +40,8 @@ ResultItem.propTypes = {
 ResultItem.defaultProps = {
   id: 0,
   label: '',
-  onMouseEnterResult () {},
-  onMouseLeaveResult () {},
+  onMouseEnterResult() {},
+  onMouseLeaveResult() {},
   t: translateMock({
     'map.results.access': 'Access',
   }),

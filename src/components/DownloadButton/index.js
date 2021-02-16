@@ -49,9 +49,11 @@ class DownloadButton extends React.Component {
     if (endpoint.startsWith('data:')) {
       blob = this.b64toBlob(endpoint);
     } else if (endpoint.startsWith('http')) {
-      blob = await (await fetch(endpoint, {
-        responseType: 'blob',
-      })).blob();
+      blob = await (
+        await fetch(endpoint, {
+          responseType: 'blob',
+        })
+      ).blob();
     } else {
       blob = await Api.request(endpoint, {
         responseType: 'blob',
@@ -61,17 +63,13 @@ class DownloadButton extends React.Component {
     this.setState({ dowloading: false });
   };
 
-
-  render () {
+  render() {
     const { as, ...props } = this.props;
     const { dowloading } = this.state;
     const { handleDownloadClick } = this;
     const Component = dowloading ? Spinner : as;
-    return (
-      <Component {...props} onClick={event => handleDownloadClick(event)} />
-    );
+    return <Component {...props} onClick={event => handleDownloadClick(event)} />;
   }
 }
-
 
 export default DownloadButton;

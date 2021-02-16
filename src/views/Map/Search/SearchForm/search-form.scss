@@ -1,4 +1,4 @@
-@import "../../../../variables.scss";
+@import '../../../../variables.scss';
 
 .filters {
   padding-top: 10px;
@@ -36,12 +36,11 @@
           }
 
           &:focus {
-            box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3), inset 0 1px 1px rgba(16, 22, 26, 0.2);
+            box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19, 124, 189, 0.3),
+              inset 0 1px 1px rgba(16, 22, 26, 0.2);
           }
         }
       }
-
-
     }
 
     .tf-multiselect {
@@ -74,7 +73,7 @@
         width: 100%;
         background-color: $lightestgrey;
         padding: 5px;
-        box-shadow: 0 0 3px rgba(255, 255, 255, .2) inset;
+        box-shadow: 0 0 3px rgba(255, 255, 255, 0.2) inset;
 
         .bp3-control-group {
           display: flex;
@@ -103,7 +102,7 @@
         }
 
         &:before {
-          content: "";
+          content: '';
           padding: 5px 10px 5px 5px;
           line-height: 20px;
         }
@@ -113,13 +112,13 @@
         padding-bottom: 0.5em;
 
         &:before {
-          content: "Du";
+          content: 'Du';
         }
       }
 
       .input-range--end {
         &:before {
-          content: "Au";
+          content: 'Au';
         }
       }
     }

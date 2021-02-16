@@ -17,11 +17,7 @@ export const SidebarTabsNav = () => {
   const { t } = useTranslation();
 
   return (
-    <Tabs
-      id={TABS}
-      onChange={setNavTabId}
-      selectedTabId={navTabId}
-    >
+    <Tabs id={TABS} onChange={setNavTabId} selectedTabId={navTabId}>
       <Tab
         id={ID_INFORMATION_TAB}
         title={t('viewPoint.detail.information.title')}

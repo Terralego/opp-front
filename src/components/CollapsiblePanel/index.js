@@ -12,7 +12,7 @@ export class CollapsiblePanel extends React.PureComponent {
     initialState: true,
   };
 
-  componentDidMount () {
+  componentDidMount() {
     const { initialState } = this.props;
     this.setState({
       isOpen: initialState,
@@ -24,7 +24,7 @@ export class CollapsiblePanel extends React.PureComponent {
       isOpen: !prevState.isOpen,
     }));
 
-  render () {
+  render() {
     const { isOpen } = this.state;
     const { title, children } = this.props;
     const chevronState = isOpen ? 'up' : 'down';

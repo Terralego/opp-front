@@ -12,10 +12,12 @@ const iconMapping = {
   xls: 'th',
 };
 
-export const DescriptionTab = ({ viewpoint: {
-  related,
-  properties: { histoire, dynamiques, paysage },
-} }) => {
+export const DescriptionTab = ({
+  viewpoint: {
+    related,
+    properties: { histoire, dynamiques, paysage },
+  },
+}) => {
   const { t } = useTranslation();
   return (
     <div className="panel-details">
@@ -53,7 +55,8 @@ export const DescriptionTab = ({ viewpoint: {
                   icon={iconMapping[type] || 'document'}
                   key={key}
                 >
-                  {key.charAt(0).toUpperCase()}{key.slice(1)}
+                  {key.charAt(0).toUpperCase()}
+                  {key.slice(1)}
                 </DownloadButton>
               );
             })}

@@ -20,16 +20,18 @@ it('should render', () => {
     { id: 1, img: 'DalekOne', file: { thumbnail: 'thumbnail' } },
     { id: 2, img: 'DalekTwo', file: { thumbnail: 'thumbnail' } },
   ];
-  const tree = renderer.create((
-    <Gallery
-      match={match}
-      pictures={pictures}
-      handleClickPicture={handleClickPicture}
-      handleDragPicture={handleDragPicture}
-      selectedPictures={selectedPictures}
-      draggable={draggable}
-      enableDnd={false}
-    />
-  )).toJSON();
+  const tree = renderer
+    .create(
+      <Gallery
+        match={match}
+        pictures={pictures}
+        handleClickPicture={handleClickPicture}
+        handleDragPicture={handleDragPicture}
+        selectedPictures={selectedPictures}
+        draggable={draggable}
+        enableDnd={false}
+      />,
+    )
+    .toJSON();
   expect(tree).toMatchSnapshot();
 });

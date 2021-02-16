@@ -12,8 +12,6 @@ jest.mock('@blueprintjs/core', () => ({
 }));
 
 it('should render', () => {
-  const tree = renderer.create((
-    <Error404 />
-  )).toJSON();
+  const tree = renderer.create(<Error404 />).toJSON();
   expect(tree).toMatchSnapshot();
 });

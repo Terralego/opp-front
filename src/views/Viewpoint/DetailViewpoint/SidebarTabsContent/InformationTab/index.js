@@ -12,10 +12,7 @@ export const InformationTab = ({
     city,
     pictures,
     themes,
-    properties: {
-      site,
-      voie,
-    },
+    properties: { site, voie },
   },
 }) => {
   const { t } = useTranslation();
@@ -24,42 +21,47 @@ export const InformationTab = ({
       <CollapsiblePanel title={t('viewPoint.detail.information.location')}>
         <Minimap />
         {(voie || city || site) && (
-        <IconBlock
-          title={t('viewPoint.detail.information.locationContent')}
-          icon="map-marker"
-          content={
-            `${site} ${voie} ${city}`
-          }
-        />
+          <IconBlock
+            title={t('viewPoint.detail.information.locationContent')}
+            icon="map-marker"
+            content={`${site} ${voie} ${city}`}
+          />
         )}
       </CollapsiblePanel>
-      <CollapsiblePanel title={t('viewPoint.detail.information.rephotography')} initialState={false}>
+      <CollapsiblePanel
+        title={t('viewPoint.detail.information.rephotography')}
+        initialState={false}
+      >
         {pictures && (
-        <IconBlock
-          title={t('viewPoint.detail.information.rephotographyContent', { count: pictures.length })}
-          icon="calendar"
-          content={(
-            <ul>
-              {pictures.map(({ id, date }) => (
-                <li key={id}>
-                  <DateDisplay date={date} />
-                </li>
-              ))}
-            </ul>
-          )}
-        />
+          <IconBlock
+            title={t('viewPoint.detail.information.rephotographyContent', {
+              count: pictures.length,
+            })}
+            icon="calendar"
+            content={
+              <ul>
+                {pictures.map(({ id, date }) => (
+                  <li key={id}>
+                    <DateDisplay date={date} />
+                  </li>
+                ))}
+              </ul>
+            }
+          />
         )}
       </CollapsiblePanel>
       {themes && (
-      <CollapsiblePanel title={t('viewPoint.detail.information.landscapes')} initialState={false}>
-        <IconBlock
-          title={t('viewPoint.detail.information.landscapesContent')}
-          icon="tag"
-          content={[...new Set(themes)].map(theme => (
-            <p key={theme} className="badge">{theme}</p>
-          ))}
-        />
-      </CollapsiblePanel>
+        <CollapsiblePanel title={t('viewPoint.detail.information.landscapes')} initialState={false}>
+          <IconBlock
+            title={t('viewPoint.detail.information.landscapesContent')}
+            icon="tag"
+            content={[...new Set(themes)].map(theme => (
+              <p key={theme} className="badge">
+                {theme}
+              </p>
+            ))}
+          />
+        </CollapsiblePanel>
       )}
     </div>
   );

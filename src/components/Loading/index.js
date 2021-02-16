@@ -10,11 +10,7 @@ import './styles.scss';
 export const Loading = ({ className, ...props }) => {
   const { t } = useTranslation();
   return (
-    <div
-      aria-label={t('common.loading')}
-      className={classnames(className, 'loading')}
-      {...props}
-    >
+    <div aria-label={t('common.loading')} className={classnames(className, 'loading')} {...props}>
       <Spinner />
     </div>
   );

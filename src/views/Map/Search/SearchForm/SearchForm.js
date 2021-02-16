@@ -28,14 +28,20 @@ export const SearchForm = ({
 
   useEffect(() => {
     isMounted.current = true;
-    return () => { isMounted.current = false; };
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
-  const filteredProperties = useMemo(() => (
-    Object.entries(properties).reduce((list, [key, value]) => (
-      filters.find(item => item.property === key) ? ({ ...list, [key]: value }) : list
-    ), {})
-  ), [filters, properties]);
+  const filteredProperties = useMemo(
+    () =>
+      Object.entries(properties).reduce(
+        (list, [key, value]) =>
+          filters.find(item => item.property === key) ? { ...list, [key]: value } : list,
+        {},
+      ),
+    [filters, properties],
+  );
 
   const onReset = useCallback(async () => {
     setResetFormDisabled(true);
@@ -45,25 +51,26 @@ export const SearchForm = ({
     setResetFormDisabled(false);
   }, [resetMapInitialState, resetSearchForm]);
 
-  const onSubmit = useCallback(async event => {
-    event.preventDefault();
-    setFormDisabled(true);
-    const data = filteredProperties ? parsePropertiesToData(filteredProperties) : {};
-    const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
-    res ? forceResultUnfolding() : toast.displayError(t('error.unavailable'));
-    if (!isMounted.current) return;
-    setFormDisabled(false);
-  }, [filteredProperties, forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, t]);
+  const onSubmit = useCallback(
+    async event => {
+      event.preventDefault();
+      setFormDisabled(true);
+      const data = filteredProperties ? parsePropertiesToData(filteredProperties) : {};
+      const res = await getFirstPageFilteredViewpoints(data, itemsPerPage, 1);
+      res ? forceResultUnfolding() : toast.displayError(t('error.unavailable'));
+      if (!isMounted.current) return;
+      setFormDisabled(false);
+    },
+    [filteredProperties, forceResultUnfolding, getFirstPageFilteredViewpoints, itemsPerPage, t],
+  );
 
-  const isDateInvalid = useMemo(() => (
-    properties.viewpointDate && properties.viewpointDate.some(date => !isDate(date))
-  ), [properties.viewpointDate]);
+  const isDateInvalid = useMemo(
+    () => properties.viewpointDate && properties.viewpointDate.some(date => !isDate(date)),
+    [properties.viewpointDate],
+  );
 
   return (
-    <form
-      className="filters"
-      onSubmit={onSubmit}
-    >
+    <form className="filters" onSubmit={onSubmit}>
       <div>
         <Filters
           onChange={setProperties}
@@ -72,11 +79,7 @@ export const SearchForm = ({
           translate={t}
         />
         <div className="action-search">
-          <Button
-            text={t('form.reset')}
-            loading={isResetFormDisabled}
-            onClick={onReset}
-          />
+          <Button text={t('form.reset')} loading={isResetFormDisabled} onClick={onReset} />
           <Button
             text={t('form.search')}
             type="submit"
@@ -92,15 +95,9 @@ export const SearchForm = ({
 export default SearchForm;
 
 SearchForm.propTypes = {
-  filters: PropTypes.arrayOf(
-    PropTypes.object,
-  ),
+  filters: PropTypes.arrayOf(PropTypes.object),
   properties: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.array,
-    ]),
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
   ),
   t: PropTypes.func,
 };

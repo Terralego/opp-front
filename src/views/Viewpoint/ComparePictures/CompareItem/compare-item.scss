@@ -30,11 +30,11 @@
   }
 
   &.canDrop::after {
-    opacity: .4;
+    opacity: 0.4;
   }
 
   &.isOver::after {
-    opacity: .85;
+    opacity: 0.85;
   }
 
   .compare_item {

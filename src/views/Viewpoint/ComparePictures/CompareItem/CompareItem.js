@@ -36,9 +36,9 @@ export const CompareItem = ({
         className="compare_item"
         role="presentation"
         style={{
-          backgroundImage: (picture && picture.file) ? `url(${picture.file.full})` : '',
-          transform: (scale > 1 && picture) ? transform : '',
-          transformOrigin: (scale > 1 && picture) ? transformOrigin : '',
+          backgroundImage: picture && picture.file ? `url(${picture.file.full})` : '',
+          transform: scale > 1 && picture ? transform : '',
+          transformOrigin: scale > 1 && picture ? transformOrigin : '',
         }}
         onDragOver={onDragOver}
         onDrop={event => onDrop(event, index)}
@@ -54,7 +54,7 @@ export const CompareItem = ({
             style={{
               top: y,
               left: x,
-              transform: `scale(${(1 / scale)})`,
+              transform: `scale(${1 / scale})`,
               display: `${showReticule ? 'block' : 'none'}`,
             }}
           />
@@ -70,4 +70,4 @@ export const CompareItem = ({
   );
 };
 
-export default (CompareItem);
+export default CompareItem;

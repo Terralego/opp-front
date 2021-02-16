@@ -23,15 +23,8 @@ export class GalleryItem extends React.Component {
     onPictureDrag(picture);
   };
 
-  render () {
-    const {
-      draggable,
-      picture,
-      selectedIndex,
-      selected,
-      onClick,
-      onDrag,
-    } = this.props;
+  render() {
+    const { draggable, picture, selectedIndex, selected, onClick, onDrag } = this.props;
     const { title = 'gallery item' } = picture;
 
     return (
@@ -61,4 +54,4 @@ export class GalleryItem extends React.Component {
   }
 }
 
-export default (GalleryItem);
+export default GalleryItem;

@@ -11,12 +11,10 @@ jest.mock('react-router-dom', () => ({
   Link: () => null,
 }));
 
-jest.mock('../SidebarTabsNav', () => () => (<p>SidebarTabsNav</p>));
-jest.mock('../SidebarBottomActions', () => () => (<p>SidebarBottomActions</p>));
+jest.mock('../SidebarTabsNav', () => () => <p>SidebarTabsNav</p>);
+jest.mock('../SidebarBottomActions', () => () => <p>SidebarBottomActions</p>);
 
 it('should render', () => {
-  const tree = renderer.create((
-    <Sidebar />
-  )).toJSON();
+  const tree = renderer.create(<Sidebar />).toJSON();
   expect(tree).toMatchSnapshot();
 });

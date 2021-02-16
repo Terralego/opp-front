@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Alignment,
-  Button,
-  Classes,
-  Navbar,
-  NavbarGroup,
-} from '@blueprintjs/core';
+import { Alignment, Button, Classes, Navbar, NavbarGroup } from '@blueprintjs/core';
 import { useTranslation } from 'react-i18next';
 
 import DownloadButton from '../../../../components/DownloadButton';

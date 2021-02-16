@@ -19,20 +19,16 @@ export class Results extends React.PureComponent {
     onMouseEnterResult: PropTypes.func,
     onMouseLeaveResult: PropTypes.func,
     filteredViewpoints: PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number,
-        PropTypes.array,
-      ]),
+      PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array]),
     ),
     t: PropTypes.func,
   };
 
   static defaultProps = {
     isResultUnfold: false,
-    toggleResultFoldedState () {},
-    onMouseEnterResult () {},
-    onMouseLeaveResult () {},
+    toggleResultFoldedState() {},
+    onMouseEnterResult() {},
+    onMouseLeaveResult() {},
     filteredViewpoints: {},
     t: translateMock({
       'map.results.title': 'Results',
@@ -47,7 +43,7 @@ export class Results extends React.PureComponent {
     this.contentPane.current.scrollTo(0, 0);
   };
 
-  render () {
+  render() {
     const {
       t,
       isResultUnfold,
@@ -62,9 +58,7 @@ export class Results extends React.PureComponent {
     return (
       <div className={classNames('resultlist', { hidden: !isResultUnfold }, Classes.DARK)}>
         <div className="resultlist-header">
-          <h3 className="resultlist-title">
-            {t('map.results.title')}
-          </h3>
+          <h3 className="resultlist-title">{t('map.results.title')}</h3>
           <Button
             className="result__button"
             onClick={toggleResultFoldedState}

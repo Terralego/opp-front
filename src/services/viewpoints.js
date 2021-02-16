@@ -1,6 +1,6 @@
 import Api from '@terralego/core/modules/Api';
 
-export async function getViewpointData (id) {
+export async function getViewpointData(id) {
   try {
     return Api.request(`viewpoints/${id}/`);
   } catch (e) {
@@ -8,10 +8,9 @@ export async function getViewpointData (id) {
   }
 }
 
-export const fetchFilterOptions = () =>
-  Api.request('viewpoints/filters/');
+export const fetchFilterOptions = () => Api.request('viewpoints/filters/');
 
-export async function fetchPaginatedFilteredViewpoints ({ data, itemsPerPage = 10, page = 1 }) {
+export async function fetchPaginatedFilteredViewpoints({ data, itemsPerPage = 10, page = 1 }) {
   return Api.request('viewpoints/', {
     querystring: {
       ...data,

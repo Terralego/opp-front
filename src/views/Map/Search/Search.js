@@ -6,10 +6,7 @@ import classNames from 'classnames';
 
 import SearchForm from './SearchForm';
 import { getSchema } from './utils/schemaForm';
-import {
-  configAdvancedSearch,
-  configSimplesSearch,
-} from './utils/configForm';
+import { configAdvancedSearch, configSimplesSearch } from './utils/configForm';
 
 import translateMock from '../../../utils/translate';
 import { fetchFilterOptions } from '../../../services/viewpoints';
@@ -31,19 +28,17 @@ const getValuesFilters = (schemaForm, { photographers, ...data }, t) => {
     })),
   };
   return schemaForm.map(filter => {
-    const values = cleanedData[filter.name] !== undefined
-      ? { values: cleanedData[filter.name] }
-      : {};
+    const values =
+      cleanedData[filter.name] !== undefined ? { values: cleanedData[filter.name] } : {};
     return { ...filter, ...values };
   });
 };
 
-const getFiltersBySearch = (schemaForm, config) => (
+const getFiltersBySearch = (schemaForm, config) =>
   config.map(name => {
     const index = schemaForm.findIndex(filter => filter.name === name);
     return { ...schemaForm[index] };
-  })
-);
+  });
 
 export class Search extends React.PureComponent {
   static propTypes = {
@@ -54,7 +49,7 @@ export class Search extends React.PureComponent {
 
   static defaultProps = {
     isSearchUnfold: false,
-    toggleSearchFoldedState () {},
+    toggleSearchFoldedState() {},
     t: translateMock({
       'map.title': 'Search viewpoints',
       'map.simple-search': 'Simple Search',
@@ -68,12 +63,11 @@ export class Search extends React.PureComponent {
     advancedSearchFilters: [],
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.getFilters();
   }
 
-
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.isUnmount = true;
   }
 
@@ -98,23 +92,13 @@ export class Search extends React.PureComponent {
     }
   };
 
-  render () {
-    const {
-      t,
-      isSearchUnfold,
-      toggleSearchFoldedState,
-    } = this.props;
-    const {
-      navTabId,
-      simplesSearchFilters,
-      advancedSearchFilters,
-    } = this.state;
+  render() {
+    const { t, isSearchUnfold, toggleSearchFoldedState } = this.props;
+    const { navTabId, simplesSearchFilters, advancedSearchFilters } = this.state;
 
     return (
       <>
-        <div
-          className={classNames('search', { search_hide: !isSearchUnfold })}
-        >
+        <div className={classNames('search', { search_hide: !isSearchUnfold })}>
           <div className="search_tabs_title">
             <h3>{t('map.title')}</h3>
             <Button
@@ -133,24 +117,14 @@ export class Search extends React.PureComponent {
               id={ID_SEARCH_SIMPLE}
               className="search-filters search-simple-content"
               title={t('map.simple-search')}
-              panel={(
-                <SearchForm
-                  itemsPerPage={itemsPerPage}
-                  filters={simplesSearchFilters}
-                />
-              )}
+              panel={<SearchForm itemsPerPage={itemsPerPage} filters={simplesSearchFilters} />}
             />
 
             <Tab
               id={ID_SEARCH_ADVANCED}
               className="search-filters search-advanced-content"
               title={t('map.advanced-search')}
-              panel={(
-                <SearchForm
-                  itemsPerPage={itemsPerPage}
-                  filters={advancedSearchFilters}
-                />
-              )}
+              panel={<SearchForm itemsPerPage={itemsPerPage} filters={advancedSearchFilters} />}
             />
           </Tabs>
         </div>

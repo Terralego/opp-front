@@ -1,8 +1,14 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { CONTROLS_BOTTOM_RIGHT, CONTROLS_BOTTOM_LEFT, CONTROL_SCALE } from '@terralego/core/modules/Map/Map';
-import InteractiveMap, { CONTROL_BACKGROUND_STYLES } from '@terralego/core/modules/Map/InteractiveMap';
+import {
+  CONTROLS_BOTTOM_RIGHT,
+  CONTROLS_BOTTOM_LEFT,
+  CONTROL_SCALE,
+} from '@terralego/core/modules/Map/Map';
+import InteractiveMap, {
+  CONTROL_BACKGROUND_STYLES,
+} from '@terralego/core/modules/Map/InteractiveMap';
 import { useTranslation } from 'react-i18next';
 import merge from 'deepmerge';
 
@@ -11,62 +17,59 @@ import MapErrorConfiguration from '../../../../../../components/MapErrorConfigur
 
 import './Minimap.scss';
 
-const Minimap = ({
-  configMap,
-  configMiniMap,
-  coordinates,
-}) => {
+const Minimap = ({ configMap, configMiniMap, coordinates }) => {
   const { t } = useTranslation();
 
   const config = useMemo(() => merge.all([configMap, configMiniMap]), [configMap, configMiniMap]);
 
-  const layers = [{
-    id: 'viewpoint',
-    type: 'symbol',
-    source: {
-      type: 'geojson',
-      data: {
-        type: 'Point',
-        coordinates,
+  const layers = [
+    {
+      id: 'viewpoint',
+      type: 'symbol',
+      source: {
+        type: 'geojson',
+        data: {
+          type: 'Point',
+          coordinates,
+        },
       },
+      layout: {
+        'icon-image': 'marker-poi',
+        'icon-size': 0.5,
+        'icon-anchor': 'bottom',
+        'icon-allow-overlap': true,
+      },
+      weight: 850,
     },
-    layout: {
-      'icon-image': 'marker-poi',
-      'icon-size': 0.5,
-      'icon-anchor': 'bottom',
-      'icon-allow-overlap': true,
-    },
-    weight: 850,
-  }];
+  ];
 
-  const props = useMemo(() => ({
-    ...config,
-    customStyle: { layers },
-    center: coordinates,
-    onMapInit: addCustomIcon,
-    controls: [{
-      control: CONTROL_BACKGROUND_STYLES,
-      position: CONTROLS_BOTTOM_RIGHT,
-    }, {
-      control: CONTROL_SCALE,
-      position: CONTROLS_BOTTOM_LEFT,
-    }],
-  }), [config, coordinates, layers]);
-
+  const props = useMemo(
+    () => ({
+      ...config,
+      customStyle: { layers },
+      center: coordinates,
+      onMapInit: addCustomIcon,
+      controls: [
+        {
+          control: CONTROL_BACKGROUND_STYLES,
+          position: CONTROLS_BOTTOM_RIGHT,
+        },
+        {
+          control: CONTROL_SCALE,
+          position: CONTROLS_BOTTOM_LEFT,
+        },
+      ],
+    }),
+    [config, coordinates, layers],
+  );
 
   if (!configMap.accessToken || !configMap.backgroundStyle) {
-    return (
-      <MapErrorConfiguration />
-    );
+    return <MapErrorConfiguration />;
   }
 
   return (
     <div className="minimap">
-      <InteractiveMap
-        {...props}
-        onStyleChange={(_, map) => addCustomIcon(map)}
-        translate={t}
-      />
+      <InteractiveMap {...props} onStyleChange={(_, map) => addCustomIcon(map)} translate={t} />
     </div>
   );
 };
@@ -89,6 +92,5 @@ Minimap.defaultProps = {
   configMap: {},
   coordinates: [],
 };
-
 
 export default Minimap;

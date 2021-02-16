@@ -20,7 +20,12 @@
 }
 
 .panel-content {
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     &:first-child {
       margin-top: 0;
     }
@@ -32,10 +37,11 @@
     }
 
     .bp3-button {
-      background: rgba(216, 216, 216, 0.30);
-      margin-bottom: .5em;
+      background: rgba(216, 216, 216, 0.3);
+      margin-bottom: 0.5em;
 
-      .bp3-icon, .bp3-button-text {
+      .bp3-icon,
+      .bp3-button-text {
         color: #fff;
       }
     }

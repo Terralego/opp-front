@@ -12,16 +12,16 @@ const { Provider } = context;
 export class SettingsProvider extends React.Component {
   state = {};
 
-  componentDidMount () {
+  componentDidMount() {
     this.initState();
   }
 
-  async initState () {
+  async initState() {
     const settings = await getSettings();
     this.setState({ env: settings });
   }
 
-  render () {
+  render() {
     const { children } = this.props;
     const { env } = this.state;
     const value = {
@@ -30,11 +30,7 @@ export class SettingsProvider extends React.Component {
 
     if (!env) return <Loading />;
 
-    return (
-      <Provider value={value}>
-        {children}
-      </Provider>
-    );
+    return <Provider value={value}>{children}</Provider>;
   }
 }
 

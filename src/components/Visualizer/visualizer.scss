@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .visualizer-opp {
   height: 100%;
@@ -20,13 +20,17 @@
     }
   }
 
-  .mapboxgl-popup-anchor-top, .mapboxgl-popup-anchor-top-left, .mapboxgl-popup-anchor-top-right {
+  .mapboxgl-popup-anchor-top,
+  .mapboxgl-popup-anchor-top-left,
+  .mapboxgl-popup-anchor-top-right {
     .mapboxgl-popup-tip {
       border-bottom-color: $mapPopup;
     }
   }
 
-  .mapboxgl-popup-anchor-bottom, .mapboxgl-popup-anchor-bottom-right, .mapboxgl-popup-anchor-bottom-left {
+  .mapboxgl-popup-anchor-bottom,
+  .mapboxgl-popup-anchor-bottom-right,
+  .mapboxgl-popup-anchor-bottom-left {
     .mapboxgl-popup-tip {
       border-top-color: $mapPopup;
     }
@@ -58,7 +62,7 @@
 
       a {
         font-size: 12px;
-        color: #F5F8FA;
+        color: #f5f8fa;
         text-align: center;
         text-transform: lowercase;
         font-weight: 600;
@@ -90,7 +94,6 @@
       display: none;
     }
   }
-
 }
 
 .visualizer-error {
