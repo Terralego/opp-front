@@ -8,12 +8,8 @@ import Content from '../Content';
 
 import './main.scss';
 
-export const Main = ({
-  isNavBarVisible,
-  env: { favicon, language, title } = {},
-}) => {
+export const Main = ({ isNavBarVisible, env: { favicon, language, title } = {} }) => {
   const { i18n } = useTranslation();
-
 
   useEffect(() => {
     if (!language) return;
@@ -24,17 +20,11 @@ export const Main = ({
     <main className="main">
       <Helmet>
         <html lang={i18n.language} prefix="og:http://ogp.me/ns#" />
-        {title && (
-          <title>{title}</title>
-        )}
-        {title && (
-          <meta property="og:title" content={title} />
-        )}
+        {title && <title>{title}</title>}
+        {title && <meta property="og:title" content={title} />}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={global.location.href} />
-        {favicon && (
-          <link rel="shortcut icon" href={favicon} />
-        )}
+        {favicon && <link rel="shortcut icon" href={favicon} />}
       </Helmet>
       {isNavBarVisible && <Nav />}
       <Content />

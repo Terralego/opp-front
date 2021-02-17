@@ -1,3 +1,3 @@
 import { CompareItem } from './CompareItem';
 
-export default (CompareItem);
+export default CompareItem;

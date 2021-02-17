@@ -2,24 +2,23 @@ import React from 'react';
 
 import { Slider, AnchorButton } from '@blueprintjs/core';
 
-
 export class ZoomControl extends React.PureComponent {
   updateScale = eventScale => {
     const { onChange } = this.props;
     onChange(Math.min(Math.max(eventScale, 1), 4));
-  }
+  };
 
   decreaseScale = () => {
     const { scale, step } = this.props;
     this.updateScale(scale - step);
-  }
+  };
 
   increaseScale = () => {
     const { scale, step } = this.props;
     this.updateScale(scale + step);
-  }
+  };
 
-  render () {
+  render() {
     const { scale, onChange, step } = this.props;
     return (
       <div className="zoom__compare">
@@ -30,13 +29,7 @@ export class ZoomControl extends React.PureComponent {
           onClick={this.decreaseScale}
         />
         <div className="zoom__container">
-          <Slider
-            value={scale}
-            min={1}
-            max={4}
-            stepSize={step}
-            onChange={onChange}
-          />
+          <Slider value={scale} min={1} max={4} stepSize={step} onChange={onChange} />
         </div>
         <AnchorButton
           className="zoom__button"
@@ -49,4 +42,4 @@ export class ZoomControl extends React.PureComponent {
   }
 }
 
-export default (ZoomControl);
+export default ZoomControl;

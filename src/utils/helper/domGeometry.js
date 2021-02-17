@@ -1,24 +1,11 @@
-function getBoundedScaledValue ({
-  initial,
-  upperBound,
-  value,
-  scale,
-}) {
-  const scaledLowerBound = initial - (initial / scale);
+function getBoundedScaledValue({ initial, upperBound, value, scale }) {
+  const scaledLowerBound = initial - initial / scale;
   const offset = upperBound - initial;
-  const scaledUpperBound = offset - (offset / scale);
-  return Math.min(
-    Math.max(-scaledUpperBound, value),
-    scaledLowerBound,
-  );
+  const scaledUpperBound = offset - offset / scale;
+  return Math.min(Math.max(-scaledUpperBound, value), scaledLowerBound);
 }
 
-export function getAllowedTranslation ({
-  transformOrigin,
-  container,
-  translation,
-  scale,
-}) {
+export function getAllowedTranslation({ transformOrigin, container, translation, scale }) {
   const translationX = getBoundedScaledValue({
     initial: transformOrigin.x,
     upperBound: container.width,
@@ -34,7 +21,7 @@ export function getAllowedTranslation ({
   return { x: translationX, y: translationY };
 }
 
-export function getDimensionsToCenterCoordinates (container) {
+export function getDimensionsToCenterCoordinates(container) {
   return {
     x: container.width / 2,
     y: container.height / 2,

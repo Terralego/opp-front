@@ -13,7 +13,12 @@
 
   font-family: $roboto;
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     color: $darkblue;
   }
 
@@ -35,13 +40,12 @@
   h4 {
     font-size: rem(18);
     margin-left: 5rem;
-
   }
 
   h5 {
     font-size: rem(16);
     margin-left: 5rem;
-    color: $darkgray
+    color: $darkgray;
   }
 
   h6 {
@@ -49,7 +53,9 @@
     margin-left: 5rem;
   }
 
-  p, ul, ol {
+  p,
+  ul,
+  ol {
     font-size: rem(14);
     margin-left: 5rem;
   }
@@ -63,7 +69,7 @@
       list-style: none;
 
       &:before {
-        content: "• ";
+        content: '• ';
         color: $darkblue;
       }
     }

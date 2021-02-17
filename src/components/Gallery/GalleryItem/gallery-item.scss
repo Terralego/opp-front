@@ -9,7 +9,7 @@
   width: 130px;
   margin: 10px auto;
 
-  &:last-child{
+  &:last-child {
     margin-bottom: 0;
   }
 
@@ -37,7 +37,7 @@
     left: 0;
     right: 0;
     padding: 10px;
-    background: rgba(0,0,0,0.80);
+    background: rgba(0, 0, 0, 0.8);
     user-select: none; /* Prevent to drag date */
   }
 
@@ -46,7 +46,6 @@
     max-width: 130px;
     border: none;
   }
-
 
   &.image-selected {
     .date-time {

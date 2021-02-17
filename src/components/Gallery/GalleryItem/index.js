@@ -1,3 +1,3 @@
 import { GalleryItem } from './GalleryItem';
 
-export default (GalleryItem);
+export default GalleryItem;

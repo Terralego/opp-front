@@ -1,11 +1,10 @@
 @import '../../../../variables';
 
 .sidebar {
-
   // Override Blueprintjs
   @extend .override-tabs-bp3;
 
   .bp3-tabs {
-    background-color: #0E5A8A
+    background-color: #0e5a8a;
   }
 }

@@ -1,4 +1,4 @@
-export function getCustomStyle (API_PROVIDER) {
+export function getCustomStyle(API_PROVIDER) {
   return {
     sources: [
       {

@@ -9,10 +9,12 @@ import Visualizer from './Visualizer';
 
 export default connectSettingsProvider(({ env: { map } }) => ({
   configMap: map,
-}))(connectAppProvider({
-  filteredViewpoints: 'filteredViewpoints.current',
-  allFilteredFeatures: 'allFilteredFeatures',
-  mapIsResizing: 'mapIsResizing',
-  setMap: 'actions.setMap',
-  interactiveMapInit: 'actions.interactiveMapInit',
-})(withTranslation()(withRouter(withEnv(Visualizer)))));
+}))(
+  connectAppProvider({
+    filteredViewpoints: 'filteredViewpoints.current',
+    allFilteredFeatures: 'allFilteredFeatures',
+    mapIsResizing: 'mapIsResizing',
+    setMap: 'actions.setMap',
+    interactiveMapInit: 'actions.interactiveMapInit',
+  })(withTranslation()(withRouter(withEnv(Visualizer)))),
+);

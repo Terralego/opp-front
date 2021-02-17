@@ -2,13 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { withTranslation } from 'react-i18next';
 
-import {
-  Classes,
-  Icon,
-  PopoverInteractionKind,
-  Popover,
-  Position,
-} from '@blueprintjs/core';
+import { Classes, Icon, PopoverInteractionKind, Popover, Position } from '@blueprintjs/core';
 import throttle from 'throttleit';
 
 import Sidebar from './Sidebar';
@@ -16,7 +10,10 @@ import ZoomControl from '../../../components/ZoomControl';
 import DateDisplay from '../../../components/DateDisplay';
 
 import { getZoom, getNewScale } from '../../../utils/helper/pictures';
-import { getAllowedTranslation, getDimensionsToCenterCoordinates } from '../../../utils/helper/domGeometry';
+import {
+  getAllowedTranslation,
+  getDimensionsToCenterCoordinates,
+} from '../../../utils/helper/domGeometry';
 
 import './detail-viewpoint.scss';
 
@@ -27,7 +24,7 @@ export class DetailViewpoint extends React.PureComponent {
     scale: 1,
     transformOrigin: { x: 0, y: 0 },
     translate: { x: 0, y: 0 },
-  }
+  };
 
   detailviewDivRef = React.createRef();
 
@@ -35,23 +32,22 @@ export class DetailViewpoint extends React.PureComponent {
 
   panningInitialPosition = {};
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.removeEventListener('mouseup', this.onMouseUp);
   }
 
   onChange = value => {
     const { x, y } = this.getPictureCenter();
     this.setState(getZoom(x, y, value));
-  }
+  };
 
   onWheel = ({ nativeEvent: { offsetX: x, offsetY: y }, deltaY }) => {
     const { scale } = this.state;
     this.setState(getZoom(x, y, getNewScale(scale, deltaY, STEP_SCALE)));
   };
 
-  getPictureCenter = () => getDimensionsToCenterCoordinates(
-    this.detailviewDivRef.current.getBoundingClientRect(),
-  );
+  getPictureCenter = () =>
+    getDimensionsToCenterCoordinates(this.detailviewDivRef.current.getBoundingClientRect());
 
   /**
    * Handle panning event
@@ -97,13 +93,19 @@ export class DetailViewpoint extends React.PureComponent {
     }
   };
 
-  render () {
+  render() {
     const { picture, t = text => text } = this.props;
 
     if (!picture) return null;
 
     const { scale, transformOrigin, translate } = this.state;
-    const { file: { full }, date, owner, properties, properties: { meteo, index } } = picture;
+    const {
+      file: { full },
+      date,
+      owner,
+      properties,
+      properties: { meteo, index },
+    } = picture;
 
     return (
       <>
@@ -135,7 +137,7 @@ export class DetailViewpoint extends React.PureComponent {
                 modifiers={{
                   offset: { offset: '0 15px' },
                 }}
-                content={(
+                content={
                   <div className="picture-metadata--popover">
                     <div>
                       <span className="label">{t('viewPoint.photo.id')}</span>
@@ -156,7 +158,7 @@ export class DetailViewpoint extends React.PureComponent {
                       </span>
                     </div>
                   </div>
-                )}
+                }
               >
                 <Icon icon="info-sign" />
               </Popover>

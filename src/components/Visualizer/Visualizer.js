@@ -30,7 +30,7 @@ export class Visualizer extends React.Component {
   };
 
   static defaultProps = {
-    setMap () {},
+    setMap() {},
   };
 
   resetMap = map => {
@@ -48,7 +48,7 @@ export class Visualizer extends React.Component {
     return features;
   };
 
-  render () {
+  render() {
     const {
       t,
       history,
@@ -59,17 +59,19 @@ export class Visualizer extends React.Component {
       i18n: {
         getResourceBundle,
         language,
-        store: { options: { fallbackLng } },
+        store: {
+          options: { fallbackLng },
+        },
       },
     } = this.props;
 
     if (!configMap.accessToken || !configMap.backgroundStyle) {
-      return (
-        <MapErrorConfiguration className="visualizer-error" />
-      );
+      return <MapErrorConfiguration className="visualizer-error" />;
     }
 
-    const { terralego: { map: mapLocale } } = getResourceBundle(language.split('-')[0]) || getResourceBundle(fallbackLng[0]);
+    const {
+      terralego: { map: mapLocale },
+    } = getResourceBundle(language.split('-')[0]) || getResourceBundle(fallbackLng[0]);
 
     return (
       <div

@@ -26,18 +26,22 @@ export class Viewpoint extends React.Component {
     mapPosition: {},
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     const { isNavBarVisible, toggleNavBar } = props;
     isNavBarVisible && toggleNavBar();
   }
 
-  componentDidMount () {
-    const { match: { params: { id } } } = this.props;
+  componentDidMount() {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
     this.getDataViewpoints(id);
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.isUnmount = true;
   }
 
@@ -46,7 +50,7 @@ export class Viewpoint extends React.Component {
    * @param idViewpoint
    * @returns {Promise<void>}
    */
-  async getDataViewpoints (idViewpoint) {
+  async getDataViewpoints(idViewpoint) {
     const viewpoint = await getViewpointData(idViewpoint);
     if (this.isUnmount) {
       return;
@@ -64,7 +68,11 @@ export class Viewpoint extends React.Component {
    * @param picture
    */
   handleClickPicture = picture => {
-    const { match: { params: { imageView } } } = this.props;
+    const {
+      match: {
+        params: { imageView },
+      },
+    } = this.props;
     if (imageView !== VIEW_COMPARE) {
       this.setState({ selectedPictures: [picture, null] });
     } else {
@@ -107,8 +115,7 @@ export class Viewpoint extends React.Component {
    */
   selectPicture = picture => {
     const { selectedPictures } = this.state;
-    const freeSlotIndex = selectedPictures.findIndex(selectedPicture =>
-      !selectedPicture);
+    const freeSlotIndex = selectedPictures.findIndex(selectedPicture => !selectedPicture);
     const newSelectedPicture = [...selectedPictures];
     newSelectedPicture[freeSlotIndex] = picture;
     this.setState({ selectedPictures: [...newSelectedPicture] });
@@ -120,8 +127,9 @@ export class Viewpoint extends React.Component {
    */
   deselectPicture = picture => {
     const { selectedPictures } = this.state;
-    const indexPicture = selectedPictures.findIndex(selectedPicture =>
-      selectedPicture && selectedPicture.id === picture.id);
+    const indexPicture = selectedPictures.findIndex(
+      selectedPicture => selectedPicture && selectedPicture.id === picture.id,
+    );
     const newSelectedPicture = [...selectedPictures];
     newSelectedPicture[indexPicture] = null;
     this.setState({ selectedPictures: [...newSelectedPicture] });
@@ -134,15 +142,16 @@ export class Viewpoint extends React.Component {
    */
   isPictureSelected = picture => {
     const { selectedPictures } = this.state;
-    return selectedPictures.some(selectedPicture =>
-      selectedPicture && selectedPicture.id === picture.id);
+    return selectedPictures.some(
+      selectedPicture => selectedPicture && selectedPicture.id === picture.id,
+    );
   };
 
   /**
    * Action to manage comparaison onClick
    * @param picture
    */
-  compareAction (picture) {
+  compareAction(picture) {
     if (this.isPictureSelected(picture)) {
       this.deselectPicture(picture);
     } else {
@@ -150,11 +159,13 @@ export class Viewpoint extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const {
       isNavBarVisible,
       toggleNavBar,
-      match: { params: { imageView } },
+      match: {
+        params: { imageView },
+      },
       mapPosition: { lat, lng, zoom },
     } = this.props;
     const {
@@ -163,11 +174,7 @@ export class Viewpoint extends React.Component {
       selectedPictures,
       selectedPictures: [currentPicture],
     } = this.state;
-    const {
-      handleClickPicture,
-      handleDragPicture,
-      handleDropPicture,
-    } = this;
+    const { handleClickPicture, handleDragPicture, handleDropPicture } = this;
     const draggable = imageView === VIEW_COMPARE;
     const mapUrl = lat ? `/#${zoom}/${lat}/${lng}` : '/';
     const to = imageView === VIEW_COMPARE ? '/viewpoint/{{id}}' : mapUrl;
@@ -180,7 +187,7 @@ export class Viewpoint extends React.Component {
             to={to}
             viewpoint={viewpoint}
             isNavBarVisible={isNavBarVisible}
-            toggleNavBar={(to === mapUrl) && toggleNavBar}
+            toggleNavBar={to === mapUrl && toggleNavBar}
           />
           <Gallery
             pictures={pictures}
@@ -200,10 +207,7 @@ export class Viewpoint extends React.Component {
                 />
               )}
             />
-            <Route
-              exact
-              render={() => <DetailViewpoint picture={currentPicture} />}
-            />
+            <Route exact render={() => <DetailViewpoint picture={currentPicture} />} />
           </Switch>
         </div>
       </Provider>

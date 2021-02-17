@@ -28,7 +28,7 @@ export class AppProvider extends React.Component {
     searchFormProperties: {},
   };
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.isUnmount = true;
   }
 
@@ -56,21 +56,17 @@ export class AppProvider extends React.Component {
         itemsPerPage: forceItemPage,
       });
 
-      const allFilteredFeatures = allFilteredViewpoints.results.map(({
-        point: geometry,
-        id,
-        label,
-        city,
-        picture: { thumbnail },
-      }) => ({
-        geometry,
-        properties: {
-          viewpoint_id: id,
-          viewpoint_label: label,
-          viewpoint_picture: thumbnail,
-          viewpoint_city: city,
-        },
-      }));
+      const allFilteredFeatures = allFilteredViewpoints.results.map(
+        ({ point: geometry, id, label, city, picture: { thumbnail } }) => ({
+          geometry,
+          properties: {
+            viewpoint_id: id,
+            viewpoint_label: label,
+            viewpoint_picture: thumbnail,
+            viewpoint_city: city,
+          },
+        }),
+      );
 
       this.setState(
         {
@@ -86,16 +82,15 @@ export class AppProvider extends React.Component {
 
       if (allFilteredFeatures.length > 0) {
         if (allFilteredFeatures.length === 1) {
-          const { point: { coordinates } } = allFilteredFeatures[0];
+          const {
+            point: { coordinates },
+          } = allFilteredFeatures[0];
           map.easeTo({ center: coordinates });
         } else if (isResultUnfold) {
           fitZoom({ feature: allFilteredFeatures, map, padding });
         } else {
           // We need to wait for the result to unfold and the map to have resized
-          map.once(
-            'resize',
-            () => fitZoom({ feature: allFilteredFeatures, map, padding }),
-          );
+          map.once('resize', () => fitZoom({ feature: allFilteredFeatures, map, padding }));
         }
       }
       return true;
@@ -113,7 +108,10 @@ export class AppProvider extends React.Component {
    * @returns {Promise<void>}
    */
   getPaginatedFilteredViewpoints = async (itemsPerPage, page) => {
-    const { filteredViewpoints: { [page]: existingPagedViewpoints }, filters } = this.state;
+    const {
+      filteredViewpoints: { [page]: existingPagedViewpoints },
+      filters,
+    } = this.state;
 
     if (existingPagedViewpoints) {
       this.setState(prevState => ({
@@ -239,7 +237,7 @@ export class AppProvider extends React.Component {
     removeHighlight({ layerId: 'viewpoints-unclustered-0', featureId: id });
   };
 
-  render () {
+  render() {
     const {
       isNavBarVisible,
       isSearchUnfold,

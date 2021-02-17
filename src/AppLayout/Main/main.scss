@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 body {
   font-family: $base-font;
@@ -19,7 +19,7 @@ body {
       }
     }
   }
-  
+
   &__content {
     display: flex;
     flex: auto;

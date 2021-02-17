@@ -22,9 +22,9 @@ export class Gallery extends React.PureComponent {
   static defaultProps = {
     pictures: [],
     selectedPictures: [],
-    handleClickPicture () {},
-    handleDragPicture () {},
-    t () {},
+    handleClickPicture() {},
+    handleDragPicture() {},
+    t() {},
   };
 
   /**
@@ -34,8 +34,9 @@ export class Gallery extends React.PureComponent {
    */
   getPictureIndex = idPicture => {
     const { selectedPictures } = this.props;
-    const index = selectedPictures.findIndex(selectedPicture =>
-      selectedPicture && selectedPicture.id === idPicture);
+    const index = selectedPictures.findIndex(
+      selectedPicture => selectedPicture && selectedPicture.id === idPicture,
+    );
     return index > -1 ? index : '';
   };
 
@@ -46,13 +47,17 @@ export class Gallery extends React.PureComponent {
    */
   isPicturesSelected = idPicture => {
     const { selectedPictures } = this.props;
-    return selectedPictures.some(selectedPicture =>
-      selectedPicture && selectedPicture.id === idPicture);
+    return selectedPictures.some(
+      selectedPicture => selectedPicture && selectedPicture.id === idPicture,
+    );
   };
 
-  render () {
+  render() {
     const {
-      match: { url, params: { id } },
+      match: {
+        url,
+        params: { id },
+      },
       pictures,
       draggable,
       selectedPictures,
@@ -62,33 +67,29 @@ export class Gallery extends React.PureComponent {
       t,
     } = this.props;
 
-    const GalleryItemComponent = enableDnd
-      ? DraggableGalleryItem
-      : GalleryItem;
+    const GalleryItemComponent = enableDnd ? DraggableGalleryItem : GalleryItem;
 
     return (
       <div className="gallery">
         <div className="gallery__collection">
-          {!!pictures && pictures.map(picture => (
-            <GalleryItemComponent
-              key={picture.id}
-              picture={picture}
-              selectedIndex={this.getPictureIndex(picture.id)}
-              selected={this.isPicturesSelected(picture.id)}
-              draggable={draggable}
-              selectedPictures={selectedPictures}
-              onClick={handleClickPicture}
-              onDrag={handleDragPicture}
-            />
-          ))}
+          {!!pictures &&
+            pictures.map(picture => (
+              <GalleryItemComponent
+                key={picture.id}
+                picture={picture}
+                selectedIndex={this.getPictureIndex(picture.id)}
+                selected={this.isPicturesSelected(picture.id)}
+                draggable={draggable}
+                selectedPictures={selectedPictures}
+                onClick={handleClickPicture}
+                onDrag={handleDragPicture}
+              />
+            ))}
         </div>
 
         <div className="action-compare">
           <NavLink to={draggable ? `/viewpoint/${id}` : `${url}/compare`}>
-            <Button
-              intent={Intent.NONE}
-              icon="folder-shared-open"
-            >
+            <Button intent={Intent.NONE} icon="folder-shared-open">
               {draggable ? t('gallery.backToViewPoint') : t('gallery.compareViewPoints')}
             </Button>
           </NavLink>

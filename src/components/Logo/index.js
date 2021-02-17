@@ -5,9 +5,7 @@ export const Logo = ({ src, alt }) => {
   if (!src && !alt) {
     return null;
   }
-  return src
-    ? <img src={src} className="logo" alt={alt} />
-    : <span>{alt}</span>;
+  return src ? <img src={src} className="logo" alt={alt} /> : <span>{alt}</span>;
 };
 
 Logo.propTypes = {

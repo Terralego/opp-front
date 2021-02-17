@@ -19,7 +19,7 @@ const DEFAULT_SETTINGS = {
   },
 };
 
-const getCustomSettings =  async () => {
+const getCustomSettings = async () => {
   try {
     const customSettings = await fetch(SETTINGS_PATH);
     return await customSettings.json();

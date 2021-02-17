@@ -10,12 +10,10 @@ jest.mock('react-router-dom', () => ({
   Link: () => null,
 }));
 
-jest.mock('./../../components/Gallery', () => () => (<p>Gallery</p>));
+jest.mock('./../../components/Gallery', () => () => <p>Gallery</p>);
 
 it('should render', () => {
   const match = { params: { imageView: '/' } };
-  const tree = renderer.create((
-    <Viewpoint match={match} />
-  )).toJSON();
+  const tree = renderer.create(<Viewpoint match={match} />).toJSON();
   expect(tree).toMatchSnapshot();
 });

@@ -15,10 +15,7 @@ jest.mock('@blueprintjs/core', () => ({
   Button: () => <p>Button</p>,
 }));
 
-
 it('should render', () => {
-  const tree = renderer.create((
-    <SidebarBottomActions />
-  )).toJSON();
+  const tree = renderer.create(<SidebarBottomActions />).toJSON();
   expect(tree).toMatchSnapshot();
 });

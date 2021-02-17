@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 export const DateDisplay = ({ date, dayOnly, fallback, forceLocale }) => {
-  const { i18n: { language }, t } = useTranslation();
+  const {
+    i18n: { language },
+    t,
+  } = useTranslation();
   const locale = forceLocale || language;
 
   if (!date || !locale) {

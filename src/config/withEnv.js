@@ -4,21 +4,23 @@ export const withEnv = WrappedComponent =>
   class WithEnv extends React.Component {
     state = {};
 
-    componentDidMount () {
+    componentDidMount() {
       this.loadEnv();
     }
 
-    async loadEnv () {
+    async loadEnv() {
       try {
         const env = await fetch('/env.json');
         this.setState({ env: await env.json() });
       } catch (e) {
         // eslint-disable-next-line no-console
-        console.error('env.json is invalid. Please create a public/env.json from public/env.dist.json');
+        console.error(
+          'env.json is invalid. Please create a public/env.json from public/env.dist.json',
+        );
       }
     }
 
-    render () {
+    render() {
       const { env } = this.state;
       if (!env) return null;
       return <WrappedComponent env={env} {...this.props} />;

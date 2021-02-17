@@ -1,8 +1,4 @@
-import {
-  TYPE_MANY,
-  TYPE_RANGE,
-  TYPE_SINGLE,
-} from '@terralego/core/modules/Forms/Filters';
+import { TYPE_MANY, TYPE_RANGE, TYPE_SINGLE } from '@terralego/core/modules/Forms/Filters';
 
 export const getSchema = ({ i18n: { language }, t }) => [
   {
@@ -10,14 +6,16 @@ export const getSchema = ({ i18n: { language }, t }) => [
     property: 'city',
     label: t('form.fields.cities'),
     type: TYPE_SINGLE,
-  }, {
+  },
+  {
     name: 'themes',
     property: 'themes',
     label: t('form.fields.themes'),
     type: TYPE_MANY,
     placeholder: t('form.fields.themesPlaceholder'),
     display: 'select',
-  }, {
+  },
+  {
     name: 'date',
     property: 'viewpointDate',
     label: t('form.fields.date'),
@@ -35,7 +33,8 @@ export const getSchema = ({ i18n: { language }, t }) => [
       className: 'input-range input-range--end',
     },
     type: TYPE_RANGE,
-  }, {
+  },
+  {
     name: 'keywords',
     property: 'properties__keywords',
     label: t('form.fields.keywords'),

@@ -2,14 +2,14 @@ import { Intent, Toaster } from '@blueprintjs/core';
 
 const submitToaster = Toaster.create();
 
-function displayToaster (elem, msgSuccess, msgError) {
+function displayToaster(elem, msgSuccess, msgError) {
   submitToaster.show({
     message: elem ? msgSuccess : msgError,
     intent: elem ? Intent.SUCCESS : Intent.DANGER,
   });
 }
 
-function displayError (msgError) {
+function displayError(msgError) {
   submitToaster.show({
     message: msgError,
     intent: Intent.DANGER,

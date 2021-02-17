@@ -3,11 +3,9 @@ import renderer from 'react-test-renderer';
 
 import Search from './Search';
 
-jest.mock('./SearchForm', () => () => (<p>SearchFormMock</p>));
+jest.mock('./SearchForm', () => () => <p>SearchFormMock</p>);
 
 it('should render', () => {
-  const tree = renderer.create((
-    <Search />
-  )).toJSON();
+  const tree = renderer.create(<Search />).toJSON();
   expect(tree).toMatchSnapshot();
 });

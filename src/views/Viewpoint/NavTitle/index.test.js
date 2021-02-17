@@ -10,8 +10,6 @@ jest.mock('react-router-dom', () => ({
 it('should render', () => {
   const data = {};
   const to = '';
-  const tree = renderer.create((
-    <NavTitle to={to} viewpoint={data} />
-  )).toJSON();
+  const tree = renderer.create(<NavTitle to={to} viewpoint={data} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
