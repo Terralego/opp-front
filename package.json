@@ -46,9 +46,11 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "postbuild": "echo $npm_package_version > build/build.txt && git describe >> build/build.txt && date -R >> build/build.txt",
     "test": "craco test",
     "lint": "eslint src",
-    "coverage": "npm test -- --coverage"
+    "coverage": "npm test -- --coverage",
+    "version": "git changelog -n -t $npm_package_version && git add CHANGELOG.md"
   },
   "eslintConfig": {
     "extends": "react-app"
