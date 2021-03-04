@@ -24,7 +24,7 @@ export const InformationTab = ({
           <IconBlock
             title={t('viewPoint.detail.information.locationContent')}
             icon="map-marker"
-            content={`${site} ${voie} ${city}`}
+            content={`${site || voie || city}`}
           />
         )}
       </CollapsiblePanel>

@@ -85,11 +85,13 @@ Minimap.propTypes = {
     zoom: PropTypes.number,
     maxBounds: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.array), PropTypes.bool]),
   }),
+  configMiniMap: PropTypes.shape(),
   coordinates: PropTypes.arrayOf(PropTypes.number),
 };
 
 Minimap.defaultProps = {
   configMap: {},
+  configMiniMap: {},
   coordinates: [],
 };
 

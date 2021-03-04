@@ -12,6 +12,9 @@ const DEFAULT_SETTINGS = {
     minZoom: 6,
     maxZoom: 20,
   },
+  minimap: {
+    "zoom": 15
+  },
   theme: {
     logo: '/images/logo.png',
     logoUrl: '/',
