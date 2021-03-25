@@ -108,7 +108,13 @@
       "id": "Photography ID",
       "meta": "Metadata",
       "owner": "Photographer",
-      "weather": "Weather forecast"
+      "weather": "Weather forecast",
+      "meteo": {
+        "good_weather": "Good Weather",
+        "lightly_cloudy": "Lightly Cloudy",
+        "partialy_cloudy": "Partialy Cloudy",
+        "cloudy": "Nuageux"
+      }
     }
   }
 }

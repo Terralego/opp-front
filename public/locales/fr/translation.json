@@ -108,7 +108,13 @@
       "id": "ID Photographie",
       "meta": "Metadonnées",
       "owner": "Photographe",
-      "weather": "Conditions météo"
+      "weather": "Conditions météo",
+      "meteo": {
+        "good_weather": "Beau temps",
+        "lightly_cloudy": "Légérement couvert",
+        "partialy_cloudy": "Partiellement couvert",
+        "cloudy": "Nuageux"
+      }
     }
   }
 }
