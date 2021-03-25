@@ -149,7 +149,7 @@ export class DetailViewpoint extends React.PureComponent {
                     </div>
                     <div>
                       <span className="label">{t('viewPoint.photo.weather')}</span>
-                      <span className="value">{meteo}</span>
+                      <span className="value">{t('viewPoint.photo.meteo.'+ meteo)}</span>
                     </div>
                     <div>
                       <span className="label">{t('viewPoint.photo.device')}</span>
