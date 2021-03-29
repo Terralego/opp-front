@@ -32,6 +32,7 @@ export function getCustomStyle({ apiProvider, layerId, layerName }) {
           'icon-anchor': 'bottom',
           'icon-allow-overlap': true,
         },
+        filter: ['==', ['get', 'viewpoint_active'], true],
         'source-layer': layerName,
         weight: 850,
       },
