@@ -30,7 +30,7 @@ export class Visualizer extends React.Component {
   };
 
   static defaultProps = {
-    setMap() {},
+    setMap() { },
   };
 
   resetMap = map => {
@@ -80,6 +80,23 @@ export class Visualizer extends React.Component {
       layerName: settings.layerName,
     });
 
+
+    const settingsBackground = configMap.backgroundStyle;
+    const adminBackground = settings.base_layers;
+
+    adminBackground.forEach(element => {
+
+      const newBackground = {
+        'label': element.name,
+        'url': element.tilejson_url
+      }
+      if (!adminBackground.includes(newBackground)) {
+        settingsBackground.push(newBackground)
+      }
+    });
+
+
+
     return (
       <div
         className={classnames({
@@ -90,7 +107,9 @@ export class Visualizer extends React.Component {
         <InteractiveMap
           onClusterUpdate={this.onClusterUpdate}
           onMapInit={addCustomIcon}
-          onStyleChange={(bg, map) => addCustomIcon(map)}
+          onStyleChange={(bg, map) => {
+            addCustomIcon(map)
+          }}
           onMapLoaded={this.resetMap}
           {...configMap}
           hash
