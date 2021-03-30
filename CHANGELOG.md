@@ -1,4 +1,10 @@
 
+0.1.2 / 2021-03-30
+==================
+
+  * Retrieve active viewpoint only
+  * Add translation for weather condition
+
 0.1.1 / 2021-03-04
 ==================
 
