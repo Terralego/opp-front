@@ -105,7 +105,8 @@ export class DetailViewpoint extends React.PureComponent {
       date,
       owner,
       properties,
-      properties: { meteo, index },
+      properties: { meteo },
+      identifier,
     } = picture;
 
     return (
@@ -142,7 +143,7 @@ export class DetailViewpoint extends React.PureComponent {
                   <div className="picture-metadata--popover">
                     <div>
                       <span className="label">{t('viewPoint.photo.id')}</span>
-                      <span className="value">{index}</span>
+                      <span className="value">{identifier}</span>
                     </div>
                     <div>
                       <span className="label">{t('viewPoint.photo.owner')}</span>
