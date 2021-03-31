@@ -1,4 +1,11 @@
 
+0.1.3 / 2021-03-31
+==================
+
+  * Display identifier instead of properties index in picture meta data
+  * Add feature flag for active viewpoint retrieve
+  * Fix photographer name in search and metadata
+
 0.1.2 / 2021-03-30
 ==================
 
