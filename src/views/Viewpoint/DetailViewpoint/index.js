@@ -6,6 +6,7 @@ import { Classes, Icon, PopoverInteractionKind, Popover, Position } from '@bluep
 import throttle from 'throttleit';
 
 import Sidebar from './Sidebar';
+import { getFullName } from '../../../services/user';
 import ZoomControl from '../../../components/ZoomControl';
 import DateDisplay from '../../../components/DateDisplay';
 
@@ -145,11 +146,11 @@ export class DetailViewpoint extends React.PureComponent {
                     </div>
                     <div>
                       <span className="label">{t('viewPoint.photo.owner')}</span>
-                      <span className="value">{owner.properties.name}</span>
+                      <span className="value">{getFullName(owner)}</span>
                     </div>
                     <div>
                       <span className="label">{t('viewPoint.photo.weather')}</span>
-                      <span className="value">{t('viewPoint.photo.meteo.'+ meteo)}</span>
+                      <span className="value">{t('viewPoint.photo.meteo.' + meteo)}</span>
                     </div>
                     <div>
                       <span className="label">{t('viewPoint.photo.device')}</span>

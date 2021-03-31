@@ -10,6 +10,7 @@ import { configAdvancedSearch, configSimplesSearch } from './utils/configForm';
 
 import translateMock from '../../../utils/translate';
 import { fetchFilterOptions } from '../../../services/viewpoints';
+import { getFullName } from '../../../services/user';
 
 import './search.scss';
 
@@ -22,9 +23,9 @@ const itemsPerPage = 5;
 const getValuesFilters = (schemaForm, { photographers, ...data }, t) => {
   const cleanedData = {
     ...data,
-    photographers: photographers.map(item => ({
-      label: item.properties.name || t('map.photographerUnknown', { id: item.uuid.slice(0, 4) }),
-      value: item.uuid,
+    photographers: photographers.map(user => ({
+      label: getFullName(user) || t('map.photographerUnknown', { id: user.uuid.slice(0, 4) }),
+      value: user.uuid,
     })),
   };
   return schemaForm.map(filter => {
