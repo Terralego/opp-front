@@ -57,13 +57,14 @@ export class AppProvider extends React.Component {
       });
 
       const allFilteredFeatures = allFilteredViewpoints.results.map(
-        ({ point: geometry, id, label, city, picture: { thumbnail } }) => ({
+        ({ point: geometry, id, label, city, picture: { thumbnail }, active }) => ({
           geometry,
           properties: {
             viewpoint_id: id,
             viewpoint_label: label,
             viewpoint_picture: thumbnail,
             viewpoint_city: city,
+            viewpoint_active: active,
           },
         }),
       );
