@@ -11,17 +11,7 @@ export async function getViewpointData(id) {
 export const fetchFilterOptions = () => Api.request('viewpoints/filters/');
 
 export async function fetchPaginatedFilteredViewpoints({ data, itemsPerPage = 10, page = 1 }) {
- if (process.env.REACT_APP_ENABLE_ACTIVE_VIEWPOINTS === '1'){
-    return Api.request('viewpoints/active/', {
-      querystring: {
-        ...data,
-        page_size: itemsPerPage,
-        page,
-      },
-    });
-  }
-
-  return Api.request('viewpoints/', {
+  return Api.request('viewpoints/active/', {
     querystring: {
       ...data,
       page_size: itemsPerPage,
