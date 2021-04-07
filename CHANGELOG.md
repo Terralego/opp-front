@@ -1,4 +1,9 @@
 
+0.2.1 / 2021-04-07
+==================
+
+  * Remove feature flag for active viewpoint filtering
+
 0.2.0 / 2021-04-07
 ==================
 
