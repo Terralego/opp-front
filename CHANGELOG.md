@@ -1,4 +1,10 @@
 
+0.2.0 / 2021-04-07
+==================
+
+  * Upgrade @terralego/core from 1.26.6 to 1.27.0
+  * Add active status into properties of filtered features
+
 0.1.3 / 2021-03-31
 ==================
 
