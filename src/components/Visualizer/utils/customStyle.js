@@ -32,9 +32,7 @@ export function getCustomStyle({ apiProvider, layerId, layerName }) {
           'icon-anchor': 'bottom',
           'icon-allow-overlap': true,
         },
-        filter: (process.env.REACT_APP_ENABLE_ACTIVE_VIEWPOINTS === '1')
-          ? ['==', ['get', 'viewpoint_active'], true]
-          : undefined,
+        filter: ['==', ['get', 'viewpoint_active'], true],
         'source-layer': layerName,
         weight: 850,
       },
