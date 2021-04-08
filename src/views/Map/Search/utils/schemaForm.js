@@ -63,8 +63,8 @@ export const getSchema = ({ i18n: { language }, t }) => [
     type: TYPE_SINGLE,
   },
   {
-    name: 'pictures__id',
-    property: 'pictures__id',
+    name: 'pictures__identifier',
+    property: 'pictures__identifier',
     label: t('form.fields.id'),
     type: TYPE_SINGLE,
   },
