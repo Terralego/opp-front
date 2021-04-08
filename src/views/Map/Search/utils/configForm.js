@@ -7,7 +7,7 @@ export const configAdvancedSearch = [
   'typology',
   'photographers',
   'label',
-  'pictures__id',
+  'pictures__identifier',
 ];
 
 export default { configSimplesSearch, configAdvancedSearch };
