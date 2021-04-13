@@ -84,7 +84,7 @@ export class AppProvider extends React.Component {
       if (allFilteredFeatures.length > 0) {
         if (allFilteredFeatures.length === 1) {
           const {
-            point: { coordinates },
+            geometry: { coordinates },
           } = allFilteredFeatures[0];
           map.easeTo({ center: coordinates });
         } else if (isResultUnfold) {
