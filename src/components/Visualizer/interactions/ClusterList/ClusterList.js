@@ -9,11 +9,18 @@ export const ClusterList = ({ features, history }) => (
   <div className="clustered-features-list">
     <div className="clustered-features-list__scroll">
       <Menu>
-        {features.map(feature => (
+        {features.map(({
+          properties: {
+            viewpoint_id: id,
+            viewpoint_label: label,
+            viewpoint_city: city,
+            [ID]: propertiesId,
+          }
+        }) => (
           <Menu.Item
-            key={feature.properties[ID]}
-            onClick={() => history.push(`/viewpoint/${feature.properties.viewpoint_id}`)}
-            text={feature.properties.viewpoint_label + ', ' + feature.properties.viewpoint_city}
+            key={propertiesId}
+            onClick={() => history.push(`/viewpoint/${id}`)}
+            text={`#${id} ${label}, ${city}`}
             className="capitalize"
           />
         ))}
