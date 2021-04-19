@@ -1,4 +1,12 @@
 
+0.2.2 / 2021-04-19
+==================
+
+  * Add viewpoint id into cluster details list
+  * Fix cluster details list not displayed on click
+  * Correctly retrieve feature coordinates
+  * Change schema form to search picture by identifier instead of id
+
 0.2.1 / 2021-04-07
 ==================
 
