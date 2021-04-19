@@ -67,7 +67,7 @@ export function getInteractions(API_PROVIDER, history) {
         {
           isCluster: true,
           minZoom: 17,
-          maxZoom: 17,
+          maxZoom: 22,
         },
       ],
       async fn({ feature, clusteredFeatures, event, instance: { displayTooltip }, layerId }) {
