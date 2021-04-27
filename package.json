@@ -28,12 +28,14 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.8.6",
     "react-paginate": "^6.3.0",
+    "react-query": "^3.13.12",
     "react-router-dom": "^5.2.0",
     "throttleit": "^1.0.0"
   },
   "devDependencies": {
     "@craco/craco": "^6.1.1",
     "@types/jest": "^23.3.10",
+    "babel-eslint": "^10.1.0",
     "enzyme": "~3.10.0",
     "enzyme-adapter-react-16": "~1.14.0",
     "eslint-config-makina": "^4.0.0",
