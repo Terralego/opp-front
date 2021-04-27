@@ -1,4 +1,13 @@
 
+0.3.0 / 2021-04-27
+==================
+
+  * Display correct viewpoint address on detail page
+  * Add translation for terralego select placeholder
+  * Fix document tab open by default
+  * Change way document are displayed
+  * Change selected picture color to match marker color
+
 0.2.2 / 2021-04-19
 ==================
 
