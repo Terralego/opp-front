@@ -40,7 +40,7 @@ export const DescriptionTab = ({
           label: labelFromDocument(document),
           filename: filenameFromDocument(document),
         })),
-    [],
+    [related],
   );
 
   return (
