@@ -18,14 +18,8 @@ export const InformationTab = ({
   const { t } = useTranslation();
 
   const getViewpointInfos = useCallback((streetName, cityName, siteName) => {
-    if (streetName && cityName) {
-      return `${streetName} - ${cityName}`
-    }
-    if (streetName && !cityName) {
-      return streetName;
-    }
-    if (!streetName && cityName)  {
-      return cityName;
+    if (streetName || cityName) {
+      return [streetName, cityName].filter(Boolean).join(' - ');
     }
     return siteName || t('viewpoint.detail.information.no-info');
   }, [t]);
