@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import IconBlock from '../../../../../components/IconBlock';
 import CollapsiblePanel from '../../../../../components/CollapsiblePanel';
@@ -17,6 +17,20 @@ export const InformationTab = ({
 }) => {
   const { t } = useTranslation();
 
+  const getViewpointInfos = useCallback((streetName, cityName, siteName) => {
+    if (streetName && cityName) {
+      return `${streetName} - ${cityName}`
+    }
+    if (streetName && !cityName) {
+      return streetName;
+    }
+    if (!streetName && cityName)  {
+      return cityName;
+    }
+    return siteName || t('viewpoint.detail.information.no-info');
+  }, [t]);
+
+
   return (
     <div className="panel-details">
       <CollapsiblePanel title={t('viewPoint.detail.information.location')}>
@@ -25,7 +39,7 @@ export const InformationTab = ({
           <IconBlock
             title={t('viewPoint.detail.information.locationContent')}
             icon="map-marker"
-            content={`${voie} - ${city} (${site})`}
+            content={getViewpointInfos(voie, city, site)}
           />
         )}
       </CollapsiblePanel>
