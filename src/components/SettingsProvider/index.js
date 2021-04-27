@@ -34,4 +34,6 @@ export class SettingsProvider extends React.Component {
   }
 }
 
+export const useSettings = () => React.useContext(context).env;
+
 export default SettingsProvider;

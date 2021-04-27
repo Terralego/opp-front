@@ -22,26 +22,29 @@ const Minimap = ({ configMap, configMiniMap, coordinates }) => {
 
   const config = useMemo(() => merge.all([configMap, configMiniMap]), [configMap, configMiniMap]);
 
-  const layers = [
-    {
-      id: 'viewpoint',
-      type: 'symbol',
-      source: {
-        type: 'geojson',
-        data: {
-          type: 'Point',
-          coordinates,
+  const layers = React.useMemo(
+    () => [
+      {
+        id: 'viewpoint',
+        type: 'symbol',
+        source: {
+          type: 'geojson',
+          data: {
+            type: 'Point',
+            coordinates,
+          },
         },
+        layout: {
+          'icon-image': 'marker-poi',
+          'icon-size': 0.5,
+          'icon-anchor': 'bottom',
+          'icon-allow-overlap': true,
+        },
+        weight: 850,
       },
-      layout: {
-        'icon-image': 'marker-poi',
-        'icon-size': 0.5,
-        'icon-anchor': 'bottom',
-        'icon-allow-overlap': true,
-      },
-      weight: 850,
-    },
-  ];
+    ],
+    [coordinates],
+  );
 
   const props = useMemo(
     () => ({
