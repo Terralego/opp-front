@@ -16,6 +16,7 @@ export const InformationTab = ({
   },
 }) => {
   const { t } = useTranslation();
+
   return (
     <div className="panel-details">
       <CollapsiblePanel title={t('viewPoint.detail.information.location')}>
@@ -24,7 +25,7 @@ export const InformationTab = ({
           <IconBlock
             title={t('viewPoint.detail.information.locationContent')}
             icon="map-marker"
-            content={`${site || voie || city}`}
+            content={`${voie} - ${city} (${site})`}
           />
         )}
       </CollapsiblePanel>
