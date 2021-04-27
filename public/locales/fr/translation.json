@@ -103,7 +103,8 @@
         "rephotography": "Rephotographie",
         "rephotographyContent": "Dates ({{count}} photographie)",
         "rephotographyContent_plural": "Dates ({{count}} photographies)",
-        "title": "Informations"
+        "title": "Informations",
+        "no-info": "Aucune information disponible"
       }
     },
     "photo": {
