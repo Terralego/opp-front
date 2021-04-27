@@ -3,8 +3,6 @@ export const configAdvancedSearch = [
   'cities',
   'themes',
   'date',
-  'keywords',
-  'typology',
   'photographers',
   'label',
   'pictures__identifier',

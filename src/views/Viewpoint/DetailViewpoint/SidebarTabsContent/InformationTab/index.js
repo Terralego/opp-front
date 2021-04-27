@@ -38,7 +38,7 @@ export const InformationTab = ({
     [t],
   );
 
-  const { data: allThemes, loaded } = useQuery('themes', async () => {
+  const { data: allThemes, isLoading } = useQuery('themes', async () => {
     // First page to know total
     const { results: firstPage, num_pages: pageCount } = await Api.request('themes/', {
       querystring: { page_size: pageSize },
@@ -60,7 +60,7 @@ export const InformationTab = ({
 
   const themeMap = React.useMemo(
     () =>
-      loaded
+      !isLoading
         ? allThemes
             .filter(({ label }) => themes.includes(label))
             .reduce((acc, theme) => {
@@ -71,7 +71,7 @@ export const InformationTab = ({
               return acc;
             }, {})
         : {},
-    [allThemes, loaded, themes],
+    [allThemes, isLoading, themes],
   );
 
   return (
