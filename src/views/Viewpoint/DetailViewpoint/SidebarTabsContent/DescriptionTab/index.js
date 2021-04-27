@@ -63,8 +63,8 @@ export const DescriptionTab = ({
           <div className="panel-content" dangerouslySetInnerHTML={{ __html: dynamiques }} />
         </CollapsiblePanel>
       )}
-      {!!related.length && (
-        <CollapsiblePanel title={t('viewPoint.detail.description.documents')} initialState>
+      {!!docList.length && (
+        <CollapsiblePanel title={t('viewPoint.detail.description.documents')} initialState={false}>
           <div className="panel-content panel-content--related_documents">
             {docList.map(({ key, document, label, filename }) => (
               <a
