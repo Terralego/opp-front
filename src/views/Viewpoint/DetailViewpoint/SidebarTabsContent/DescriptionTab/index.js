@@ -1,15 +1,25 @@
 import React from 'react';
-import { Button, Classes } from '@blueprintjs/core';
 
 import { useTranslation } from 'react-i18next';
 import CollapsiblePanel from '../../../../../components/CollapsiblePanel';
 
 import { connectViewpointProvider } from '../../../context';
-import DownloadButton from '../../../../../components/DownloadButton';
 
-const iconMapping = {
-  image: 'media',
-  xls: 'th',
+const labelFromDocument = ({ key, properties: { label = key } }) => label;
+
+const filenameFromDocument = ({ document, properties: { label } }) => {
+  // source: https://stackoverflow.com/questions/190852/how-can-i-get-file-extensions-with-javascript
+  const ext = document.slice((Math.max(0, document.lastIndexOf('.')) || Infinity) + 1);
+  const name = label.replace(' ', '_').toLocaleLowerCase();
+  return ext ? `${name}.${ext}` : name;
+};
+
+const linkStyle = {
+  backgroundColor: 'rgba(216, 216, 216, 0.3)',
+  padding: '0.5em',
+  margin: '0 5px',
+  borderRadius: '3px',
+  color: 'white',
 };
 
 export const DescriptionTab = ({
@@ -19,6 +29,20 @@ export const DescriptionTab = ({
   },
 }) => {
   const { t } = useTranslation();
+
+  // Keep only type doc files and add meta info
+  const docList = React.useMemo(
+    () =>
+      related
+        .filter(({ properties: { type } }) => type === 'doc')
+        .map(document => ({
+          ...document,
+          label: labelFromDocument(document),
+          filename: filenameFromDocument(document),
+        })),
+    [],
+  );
+
   return (
     <div className="panel-details">
       {paysage && (
@@ -40,26 +64,20 @@ export const DescriptionTab = ({
         </CollapsiblePanel>
       )}
       {!!related.length && (
-        <CollapsiblePanel title={t('viewPoint.detail.description.documents')} initialState={false}>
+        <CollapsiblePanel title={t('viewPoint.detail.description.documents')} initialState>
           <div className="panel-content panel-content--related_documents">
-            {related.map(({ document, key }) => {
-              const [MIMEType] = document.split(':')[1].split(';');
-              const [type, extension] = MIMEType.split('/');
-              return (
-                <DownloadButton
-                  endpoint={document}
-                  as={Button}
-                  filename={`${key}.${extension}`}
-                  size={25}
-                  className={Classes.MINIMAL}
-                  icon={iconMapping[type] || 'document'}
-                  key={key}
-                >
-                  {key.charAt(0).toUpperCase()}
-                  {key.slice(1)}
-                </DownloadButton>
-              );
-            })}
+            {docList.map(({ key, document, label, filename }) => (
+              <a
+                href={document}
+                key={key}
+                download={filename}
+                style={linkStyle}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {label}
+              </a>
+            ))}
           </div>
         </CollapsiblePanel>
       )}
