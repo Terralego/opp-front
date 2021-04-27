@@ -50,7 +50,7 @@
     "search": "Rechercher"
   },
   "gallery": {
-    "backToViewPoint": "Retour au point de vue", 
+    "backToViewPoint": "Retour au point de vue",
     "compareViewPoints": "Comparer"
   },
   "menu": {
@@ -63,6 +63,9 @@
       "controls": {
         "generic": {
           "empty_item": "Tous(tes)"
+        },
+        "select": {
+          "input_placeholder": "Filtrer..."
         },
         "noValues": "Aucune valeur disponible"
       }
