@@ -50,7 +50,7 @@
     "search": "Search"
   },
   "gallery": {
-    "backToViewPoint": "Back to viewpoint", 
+    "backToViewPoint": "Back to viewpoint",
     "compareViewPoints": "Compare"
   },
   "menu": {
@@ -63,6 +63,9 @@
       "controls": {
         "generic": {
           "empty_item": "All"
+        },
+        "select": {
+          "input_placeholder": "Filter ..."
         },
         "noValues": "No value available"
       }
