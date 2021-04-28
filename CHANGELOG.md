@@ -1,4 +1,12 @@
 
+0.3.1 / 2021-04-28
+==================
+
+  * Remove old filters
+  * Split themes in categories
+  * Update src/views/Viewpoint/DetailViewpoint/SidebarTabsContent/InformationTab/index.js
+  * Handle missing information for viewpoint detail
+
 0.3.0 / 2021-04-27
 ==================
 
