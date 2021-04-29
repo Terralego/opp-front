@@ -14,14 +14,6 @@ const filenameFromDocument = ({ document, properties: { label } }) => {
   return ext ? `${name}.${ext}` : name;
 };
 
-const linkStyle = {
-  backgroundColor: 'rgba(216, 216, 216, 0.3)',
-  padding: '0.5em',
-  margin: '0 5px',
-  borderRadius: '3px',
-  color: 'white',
-};
-
 export const DescriptionTab = ({
   viewpoint: {
     related,
@@ -71,7 +63,6 @@ export const DescriptionTab = ({
                 href={document}
                 key={key}
                 download={filename}
-                style={linkStyle}
                 target="_blank"
                 rel="noreferrer noopener"
               >

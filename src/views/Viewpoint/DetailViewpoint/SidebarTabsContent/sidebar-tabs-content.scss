@@ -32,18 +32,17 @@
   }
 
   &--related_documents {
-    .bp3-spinner {
-      margin: 0 auto;
-    }
+    display: flex;
+    flex-wrap: wrap;
 
-    .bp3-button {
-      background: rgba(216, 216, 216, 0.3);
-      margin-bottom: 0.5em;
-
-      .bp3-icon,
-      .bp3-button-text {
-        color: #fff;
-      }
+    & a {
+      width: 30%;
+      text-align: center;
+      background-color: rgba(216, 216, 216, 0.3);
+      padding: 0.5em;
+      margin: 5px;
+      border-radius: 3px;
+      color: white;
     }
   }
 }
