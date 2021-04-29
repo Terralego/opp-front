@@ -1,4 +1,70 @@
 {
+    "auth": {
+    "loginform": {
+      "email": {
+        "helper": "Saisissez votre e-mail",
+        "helper_invalid": "E-mail invalide",
+        "info": "requis",
+        "label": "E-mail",
+        "placeholder": "E-mail"
+      },
+      "error_generic": "Identifiants invalides",
+      "password": {
+        "helper": "Saisissez votre votre mot de passe",
+        "helper_invalid": "Mot de passe invalide",
+        "info": "requis",
+        "label": "Mot de passe",
+        "placeholder": "Mot de passe"
+      },
+      "submit": "Se connecter",
+      "title": "Connexion"
+    },
+    "logout": {
+      "cancel": {
+        "button_label": "Annuler"
+      },
+      "confirm": {
+        "button_label": "Confirmer",
+        "label": "Voulez-vous vraiment vous déconnecter ?"
+      }
+    },
+    "signupform": {
+      "email": {
+        "help": "Saisissez votre e-mail",
+        "info": "requis",
+        "label": "E-mail",
+        "placeholder": "E-mail"
+      },
+      "error_generic": "Identifiants invalides",
+      "password": {
+        "help": "Saisissez votre votre mot de passe",
+        "info": "requis",
+        "label": "Mot de passe",
+        "placeholder": "Mot de passe"
+      },
+      "submit": "Réinitialiser le mot de passe",
+      "submitSuccess": "E-mail envoyé à {{email}}",
+      "title": "Mot de passe oublié",
+      "done": "Un e-mail a été envoyé avec la procédure pour la réinitialisation de votre mot de passe."
+    },
+    "resetform": {
+      "password": {
+        "label": "Saisissez votre nouveau mot de passe",
+        "errorShort":"Votre mot de passe est trop court"
+      },
+      "password2": {
+        "label": "Vérifiez le mot de passe",
+        "errorDiff":"Les deux mots de passe doivent être identiques"
+      },
+      "errorRequired": "Ce champ est requis",
+      "submit": "Valider",
+      "submitSuccess": "Votre mot de passe a été réinitialisé.",
+      "submitError": "Le lien a expiré ou une erreur est survenue. Veuillez ré-essayer plus tard.",
+      "title": "Réinitialiser le mot de passe",
+      "back": "Retour",
+      "done": "Un e-mail a été envoyé avec la procédure pour la réinitialisation de votre mot de passe."
+    }
+  },
   "date": {
     "undefined": "Non définie"
   },
@@ -56,7 +122,8 @@
   "menu": {
     "logoLink": "Retour à la carte",
     "logoName": "Observatoire de la photo",
-    "search": "Recherche"
+    "search": "Recherche",
+    "login": "Connexion"
   },
   "terralego": {
     "forms": {

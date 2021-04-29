@@ -26,6 +26,12 @@
     box-shadow: inset 2px 1px 1px 0 rgba(0, 0, 0, 0.5);
     flex-direction: column;
     height: auto;
+    margin: auto 0;
+    margin-top: 0;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     ul {
       list-style: none;
@@ -74,6 +80,27 @@
           height: 20px;
           vertical-align: middle;
         }
+      }
+    }
+  }
+}
+
+.modal-signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 130;
+
+  &__form {
+    max-width: 30rem;
+    min-width: 20rem;
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+
+      button {
+        margin: 0.25rem;
       }
     }
   }

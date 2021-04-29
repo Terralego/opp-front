@@ -3,6 +3,7 @@ import { lazy } from 'react';
 const Map = lazy(() => import('../../../views/Map'));
 
 const Viewpoint = lazy(() => import('../../../views/Viewpoint'));
+const Profile = lazy(() => import('../../../AppLayout/Profile'));
 
 const routes = [
   {
@@ -13,6 +14,10 @@ const routes = [
   {
     Component: Viewpoint,
     path: '/viewpoint/:id/:imageView?',
+  },
+  {
+    Component: Profile,
+    path: '/create-account/:id/:token',
   },
 ];
 
