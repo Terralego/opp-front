@@ -16,7 +16,7 @@ const ResultItem = ({
   picture: { list: picture },
 }) => {
   // remove highligh when component is unmounted
-  useEffect(() => () => onMouseLeaveResult(id), [onMouseLeaveResult]);
+  useEffect(() => () => onMouseLeaveResult(id), [onMouseLeaveResult, id]);
   return (
     <Link
       to={`viewpoint/${id}`}
