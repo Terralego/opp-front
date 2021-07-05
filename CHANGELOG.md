@@ -1,4 +1,9 @@
 
+0.3.3 / 2021-07-05
+==================
+
+  * Remove highlight marker  from unmounted result component (#47)
+
 0.3.2 / 2021-04-29
 ==================
 
